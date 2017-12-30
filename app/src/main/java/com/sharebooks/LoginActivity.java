@@ -4,9 +4,12 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.facebook.AccessToken;
@@ -15,16 +18,14 @@ import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
-import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
-import com.google.android.gms.common.api.ApiException;
-import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
@@ -32,6 +33,7 @@ import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.util.Arrays;
 
@@ -40,13 +42,21 @@ public class LoginActivity extends AppCompatActivity {
     private ImageButton mFacebookLoginBtn;
     private ImageButton mGoogleLoginBtn;
 
+    private Button mSignUpBtn;
+    private Button mSignInBtn;
+
+    private TextView mMailField;
+    private TextView mPassField;
+
     private CallbackManager mCallbackManager;
 
-    public static final String Facebook_TAG = "Facebook login";
-    public static final String Google_TAG = "Google login";
+    private static final String Facebook_TAG = "Facebook login";
+    private static final String Google_TAG = "Google login";
+    private static final String TAG = "Mail login";
 
-    public static final int Google_SIGN_IN = 1;
-    public static final int Facebook_SIGN_IN = 64206;
+
+    private static final int Google_SIGN_IN = 1;
+    private static final int Facebook_SIGN_IN = 64206;
 
     private GoogleSignInClient mGoogleSignInClient;
 
@@ -64,6 +74,12 @@ public class LoginActivity extends AppCompatActivity {
         mFacebookLoginBtn = (ImageButton) findViewById(R.id.fbLoginButton);
         mGoogleLoginBtn = (ImageButton) findViewById(R.id.googleLoginButton);
 
+        mSignUpBtn = (Button) findViewById(R.id.signUpBtn);
+        mSignInBtn = (Button) findViewById(R.id.signInBtn);
+
+        mMailField = findViewById(R.id.mailForm);
+        mPassField = findViewById(R.id.passForm);
+
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
@@ -74,41 +90,107 @@ public class LoginActivity extends AppCompatActivity {
         mFacebookLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LoginManager.getInstance().logInWithReadPermissions(LoginActivity.this, Arrays.asList("email", "public_profile"));
-                LoginManager.getInstance().registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
-                    @Override
-                    public void onSuccess(LoginResult loginResult) {
-                        Log.d(Facebook_TAG, "facebook:onSuccess:" + loginResult);
-                        handleFacebookAccessToken(loginResult.getAccessToken());
-                    }
-
-                    @Override
-                    public void onCancel() {
-                        Log.d(Facebook_TAG, "facebook:onCancel");
-                        // ...
-                    }
-
-                    @Override
-                    public void onError(FacebookException error) {
-                        Log.d(Facebook_TAG, "facebook:onError", error);
-                        // ...
-                    }
-                });
+                signUpWithFacebookAcount();
             }
         });
 
         mGoogleLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                Intent signInIntent = mGoogleSignInClient.getSignInIntent();
-                startActivityForResult(signInIntent, Google_SIGN_IN);
-
+                signUpWithGoogleAcount();
             }
         });
 
+        mSignUpBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (validateForm()) {
+                    signUpWithMail();
+                }
+            }
+        });
+
+        mSignInBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (validateForm()) {
+                    signInWithMail();
+                }
+            }
+        });
     }
-// ...
+
+    private void signInWithMail() {
+        String email = mMailField.getText().toString();
+        String password = mPassField.getText().toString();
+
+        mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    // Sign in success, update UI with the signed-in user's information
+                    Log.d(TAG, "createUserWithEmail:success");
+                    FirebaseUser user = mAuth.getCurrentUser();
+                    updateUI(user);
+                } else {
+                    // If sign in fails, display a message to the user.
+                    Log.w(TAG, "createUserWithEmail:failure", task.getException());
+                    updateUI(null);
+                }
+
+            }
+        });
+    }
+
+    private void signUpWithMail() {
+        String email = mMailField.getText().toString();
+        String password = mPassField.getText().toString();
+
+        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    // Sign in success, update UI with the signed-in user's information
+                    Log.d(TAG, "createUserWithEmail:success");
+                    FirebaseUser user = mAuth.getCurrentUser();
+                    updateUI(user);
+                } else {
+                    // If sign in fails, display a message to the user.
+                    Log.w(TAG, "createUserWithEmail:failure", task.getException());
+                    updateUI(null);
+                }
+
+            }
+        });
+    }
+
+    private void signUpWithGoogleAcount() {
+        Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+        startActivityForResult(signInIntent, Google_SIGN_IN);
+    }
+
+    private void signUpWithFacebookAcount() {
+        LoginManager.getInstance().logInWithReadPermissions(LoginActivity.this, Arrays.asList("email", "public_profile"));
+        LoginManager.getInstance().registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                Log.d(Facebook_TAG, "facebook:onSuccess:" + loginResult);
+                handleFacebookAccessToken(loginResult.getAccessToken());
+            }
+
+            @Override
+            public void onCancel() {
+                Log.d(Facebook_TAG, "facebook:onCancel");
+                // ...
+            }
+
+            @Override
+            public void onError(FacebookException error) {
+                Log.d(Facebook_TAG, "facebook:onError", error);
+                // ...
+            }
+        });
+    }
 
     @Override
     public void onStart() {
@@ -188,6 +270,28 @@ public class LoginActivity extends AppCompatActivity {
 
                     }
                 });
+    }
+
+    private boolean validateForm() {
+        boolean valid = true;
+
+        String email = mMailField.getText().toString();
+        if (TextUtils.isEmpty(email)) {
+            mMailField.setError("Required.");
+            valid = false;
+        } else {
+            mMailField.setError(null);
+        }
+
+        String password = mPassField.getText().toString();
+        if (TextUtils.isEmpty(password)) {
+            mPassField.setError("Required.");
+            valid = false;
+        } else {
+            mPassField.setError(null);
+        }
+
+        return valid;
     }
 
     private void updateUI(FirebaseUser currentUser) {
