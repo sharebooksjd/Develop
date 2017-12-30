@@ -80,8 +80,8 @@ public final class R {
         public static final int end_padder = 0x7f080055;
         public static final int forever = 0x7f080061;
         public static final int ghost_view = 0x7f080062;
-        public static final int icon = 0x7f080067;
-        public static final int icon_group = 0x7f080068;
+        public static final int icon = 0x7f080068;
+        public static final int icon_group = 0x7f080069;
         public static final int info = 0x7f08006e;
         public static final int italic = 0x7f080070;
         public static final int line1 = 0x7f080076;
