@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "672570186315",
+    "firebase_url": "https://develop-e948d.firebaseio.com",
+    "project_id": "develop-e948d",
+    "storage_bucket": "develop-e948d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:672570186315:android:cdd73d5a6f050de9",
+        "android_client_info": {
+          "package_name": "com.sharebooks"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "672570186315-05bobktuv3gms6slgu8a1dm31i7gopac.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sharebooks",
+            "certificate_hash": "c344ea0f845244639404c196677ce544bb6b796f"
+          }
+        },
+        {
+          "client_id": "672570186315-1dqdjbfob4bi8hr4n2lhnskfujbf60js.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbzq5M2nflOHORE7TFkoReopWbTE2_YFo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "672570186315-1dqdjbfob4bi8hr4n2lhnskfujbf60js.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
