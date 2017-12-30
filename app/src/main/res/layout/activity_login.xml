@@ -7,7 +7,7 @@
     tools:context="com.sharebooks.LoginActivity">
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/fbLoginButton"
         android:layout_width="73dp"
         android:layout_height="73dp"
         android:layout_marginBottom="52dp"
