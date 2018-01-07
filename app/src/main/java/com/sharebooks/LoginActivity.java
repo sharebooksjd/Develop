@@ -158,9 +158,6 @@ public class LoginActivity extends AppCompatActivity {
         String email = mMailField.getText().toString();
         String password = mPassField.getText().toString();
 
-        // Create a new user with a first and last name
-        final Map<String, Object> dbUser = new HashMap<>();
-
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -182,8 +179,17 @@ public class LoginActivity extends AppCompatActivity {
 
     private void AddToDatabase(FirebaseUser user) {
         // Add a new document with a generated ID
+        // Create a new user with a first and last name
+        final Map<String, Object> dbUser = new HashMap<>();
+        dbUser.put("id", user.getUid());
+        dbUser.put("name", user.getDisplayName());
+        dbUser.put("mail", user.getEmail());
+        dbUser.put("mail_verified", user.isEmailVerified());
+        //dbUser.put("metadata", user.getMetadata());
+        dbUser.put("provider_id", user.getProviderId());
+
         mDb.collection("users")
-                .add(user)
+                .add(dbUser)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
