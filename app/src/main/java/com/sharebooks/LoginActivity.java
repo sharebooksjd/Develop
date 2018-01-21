@@ -174,6 +174,8 @@ public class LoginActivity extends AppCompatActivity {
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "createUserWithEmail:failure", task.getException());
+                    Toast.makeText(LoginActivity.this, task.getException().getMessage(),
+                            Toast.LENGTH_SHORT).show();
                     updateUI(null);
                 }
 
@@ -199,7 +201,7 @@ public class LoginActivity extends AppCompatActivity {
                             dbUser.put("name", firebase_user.getDisplayName());
                             dbUser.put("mail", firebase_user.getEmail());
                             dbUser.put("mail_verified", firebase_user.isEmailVerified());
-            //*************************************************************MIRARRRRRR dbUser.put("provider_id", firebase_user.getProviderData().get(0).toString());
+                            dbUser.put("provider_id", firebase_user.getProviders().get(0));
 
                             mDb.collection("users")
                                     .add(dbUser)
@@ -216,7 +218,8 @@ public class LoginActivity extends AppCompatActivity {
                                         }
                                     });
                         } else {
-                            Log.w(TAG, "Users already exists or task has failed or suputamadre");
+                            Toast.makeText(LoginActivity.this, "Esta cuenta de correo ya se encuentra creada en el sistema mediante "+firebase_user.getProviders().get(0),
+                                    Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -282,7 +285,7 @@ public class LoginActivity extends AppCompatActivity {
     private void handleFacebookAccessToken(AccessToken token) {
         Log.d(Facebook_TAG, "handleFacebookAccessToken:" + token);
 
-        AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
+        final AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -296,12 +299,10 @@ public class LoginActivity extends AppCompatActivity {
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(Facebook_TAG, "signInWithCredential:failure", task.getException());
-                            Toast.makeText(LoginActivity.this, "Authentication failed.",
+                            Toast.makeText(LoginActivity.this, task.getException().getMessage(),
                                     Toast.LENGTH_SHORT).show();
                             updateUI(null);
                         }
-
-                        // ...
                     }
                 });
     }
@@ -323,7 +324,7 @@ public class LoginActivity extends AppCompatActivity {
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(Google_TAG, "signInWithCredential:failure", task.getException());
-                            Toast.makeText(LoginActivity.this, "Authentication failed.",
+                            Toast.makeText(LoginActivity.this, task.getException().getMessage(),
                                     Toast.LENGTH_SHORT).show();
                             updateUI(null);
                         }
