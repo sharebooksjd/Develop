@@ -145,7 +145,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Jorge\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.0.1.aar\\3f5cdd37901956a359c140192df88be3\\res\\values-es-rUS\\values-es-rUS.xml",
+                    "source": "C:\\Users\\Jorge\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.0.2.aar\\8e9b94c08c2276a93ba0ee3f62170d47\\res\\values-es-rUS\\values-es-rUS.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -162,7 +162,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Jorge\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.1.aar\\19b473e2bf4e0a96fbbb9c07d4870855\\res\\values-es-rUS\\values-es-rUS.xml",
+                    "source": "C:\\Users\\Jorge\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.2.aar\\e4056ba667b6dfc27836c76655951c41\\res\\values-es-rUS\\values-es-rUS.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

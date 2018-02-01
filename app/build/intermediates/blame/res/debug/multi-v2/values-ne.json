@@ -128,23 +128,6 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Jorge\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.0.1.aar\\3f5cdd37901956a359c140192df88be3\\res\\values-ne\\values-ne.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "39",
-                        "startColumns": "4",
-                        "startOffsets": "4981",
-                        "endColumns": "100",
-                        "endOffsets": "5077"
-                    }
-                },
-                {
                     "source": "C:\\Users\\Jorge\\.gradle\\caches\\transforms-1\\files-1.1\\firebase-messaging-11.8.0.aar\\52faf673fd8b75515c259e4a772b8b9d\\res\\values-ne\\values.xml",
                     "from": {
                         "startLines": "4",
@@ -162,7 +145,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Jorge\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.1.aar\\19b473e2bf4e0a96fbbb9c07d4870855\\res\\values-ne\\values-ne.xml",
+                    "source": "C:\\Users\\Jorge\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.2.aar\\e4056ba667b6dfc27836c76655951c41\\res\\values-ne\\values-ne.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -176,6 +159,23 @@
                         "startOffsets": "105,210,314,422,513,620,747,841,931,1019,1129,1245,1348,1463,1565,1680,1851,4895",
                         "endColumns": "104,103,107,90,106,126,93,89,87,109,115,102,114,101,114,170,111,85",
                         "endOffsets": "205,309,417,508,615,742,836,926,1014,1124,1240,1343,1458,1560,1675,1846,1958,4976"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Jorge\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.0.2.aar\\8e9b94c08c2276a93ba0ee3f62170d47\\res\\values-ne\\values-ne.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "39",
+                        "startColumns": "4",
+                        "startOffsets": "4981",
+                        "endColumns": "100",
+                        "endOffsets": "5077"
                     }
                 }
             ]

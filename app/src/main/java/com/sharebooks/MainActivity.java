@@ -3,8 +3,6 @@ package com.sharebooks;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -13,6 +11,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private FirebaseAuth mAuth;
+    private final static String API_KEY = "";
 //    private DatabaseReference mUserRef;
 
     @Override
@@ -37,8 +38,8 @@ public class MainActivity extends AppCompatActivity
             mUserRef = FirebaseDatabase.getInstance().getReference().child("Users").child(mAuth.getCurrentUser().getUid());
         }
 */
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton fab_facebook = (FloatingActionButton) findViewById(R.id.facebook_btn);
+        fab_facebook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FirebaseUser currentUser = mAuth.getCurrentUser();
@@ -50,6 +51,14 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+        FloatingActionButton fab_barcode = (FloatingActionButton) findViewById(R.id.bar_btn);
+        fab_barcode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                    SendToScan();
+            }
+        });
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -57,7 +66,21 @@ public class MainActivity extends AppCompatActivity
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        View hView =  navigationView.getHeaderView(0);
+
+        TextView userName = (TextView) hView.findViewById(R.id.userName);
+        userName.setText(mAuth.getCurrentUser().getDisplayName().toString());
+
+        TextView userMail = (TextView) hView.findViewById(R.id.userMail);
+        userMail.setText(mAuth.getCurrentUser().getEmail().toString());
+
         navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    private void SendToScan() {
+        Intent scanIntent = new Intent(MainActivity.this, ScanActivity.class);
+        startActivity(scanIntent);
+        finish();
     }
 
     @Override

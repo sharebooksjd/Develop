@@ -1,11 +1,15 @@
 #Internal package file, do not edit.
-#Sun Jan 07 13:03:19 CET 2018
+#Thu Feb 01 20:07:08 CET 2018
 1.base=C\:\\Users\\Jorge\\AndroidStudioProjects\\Develop\\app\\build\\intermediates\\assets\\debug
+2.path=beep.mp3
 0.baseType=DIRECTORY
+2.base=C\:\\Users\\Jorge\\AndroidStudioProjects\\Develop\\app\\build\\intermediates\\assets\\debug
+2.set=ASSET
 1.baseType=DIRECTORY
-count=2
+count=3
 1.set=ASSET
 0.path=classes.dex
 0.set=DEX
 0.base=C\:\\Users\\Jorge\\AndroidStudioProjects\\Develop\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\38
+2.baseType=DIRECTORY
 1.path=crashlytics-build.properties
