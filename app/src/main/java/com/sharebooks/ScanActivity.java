@@ -1,5 +1,6 @@
 package com.sharebooks;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -36,6 +37,11 @@ public class ScanActivity extends AppCompatActivity implements BarcodeReader.Bar
             }
         });
         barcodeReader.pauseScanning();
+
+        // ticket details activity by passing barcode
+        Intent intent = new Intent(ScanActivity.this, SearchActivity.class);
+        intent.putExtra("code", barcode.displayValue);
+        startActivity(intent);
     }
 
     @Override

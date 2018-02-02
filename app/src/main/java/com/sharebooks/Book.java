@@ -10,8 +10,8 @@ import com.google.gson.annotations.*;
 
 public class Book {
 
-    @SerializedName("id")
-    private Integer id;
+    @SerializedName("isbn")
+    private String isbn;
     @SerializedName("originalLanguage")
     private String originalLanguage;
     @SerializedName("title")
@@ -19,19 +19,19 @@ public class Book {
     @SerializedName("author")
     private String author;
 
-    public Book(Integer id, String originalLanguage, String title, String author) {
-        this.id = id;
+    public Book(String isbn, String originalLanguage, String title, String author) {
+        this.isbn = isbn;
         this.originalLanguage = originalLanguage;
         this.title = title;
         this.author = author;
     }
 
-    public Integer getId() {
-        return id;
+    public String getIsbn() {
+        return isbn;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIsbn(String id) {
+        this.isbn = id;
     }
 
     public String getOriginalLanguage() {

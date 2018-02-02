@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/com_facebook_button_background_color_focused_disabled"
     tools:context="com.sharebooks.ScanActivity">
 
     <fragment
@@ -22,6 +23,6 @@
         app:line_speed="6"
         app:line_width="4"
         app:square_height="200"
-        app:square_width="200"/>
+        app:square_width="200" />
 
 </android.support.constraint.ConstraintLayout>
