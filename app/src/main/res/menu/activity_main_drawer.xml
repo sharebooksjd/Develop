@@ -5,33 +5,33 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
+            android:id="@+id/nav_scanner"
+            android:icon="@drawable/bar_code"
+            android:title="Escanear" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
+            android:id="@+id/nav_myBooks"
+            android:icon="@drawable/ic_mybooks"
+            android:title="Mis libros" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
+            android:id="@+id/nav_Lookup"
+            android:icon="@drawable/ic_lookup"
+            android:title="Búsqueda" />
         <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:id="@+id/nav_AdavancedLookup"
+            android:icon="@drawable/ic_advancedlookup"
+            android:title="Búsqueda Avanzada" />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Opciones">
         <menu>
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:title="Compartir" />
             <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/logout"
+                android:title="Cerrar Sesión" />
         </menu>
     </item>
 

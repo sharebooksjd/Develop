@@ -38,16 +38,11 @@ public class MainActivity extends AppCompatActivity
             mUserRef = FirebaseDatabase.getInstance().getReference().child("Users").child(mAuth.getCurrentUser().getUid());
         }
 */
-        FloatingActionButton fab_facebook = (FloatingActionButton) findViewById(R.id.facebook_btn);
-        fab_facebook.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton fab_logout = (FloatingActionButton) findViewById(R.id.logout_btn);
+        fab_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FirebaseUser currentUser = mAuth.getCurrentUser();
-                if(currentUser != null){
-                    mAuth.signOut();
-                    LoginManager.getInstance().logOut();
-                    sendToStart();
-                }
+                Logout();
             }
         });
 
@@ -75,6 +70,15 @@ public class MainActivity extends AppCompatActivity
         userMail.setText(mAuth.getCurrentUser().getEmail().toString());
 
         navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    private void Logout() {
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(currentUser != null){
+            mAuth.signOut();
+            LoginManager.getInstance().logOut();
+            sendToStart();
+        }
     }
 
     private void SendToScan() {
@@ -116,39 +120,24 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.nav_scanner) {
+            SendToScan();
+        } else if (id == R.id.nav_myBooks) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_Lookup) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_AdavancedLookup) {
 
         } else if (id == R.id.nav_share) {
 
-        } else if (id == R.id.nav_send) {
-
+        } else if (id == R.id.nav_logout) {
+            Logout();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
