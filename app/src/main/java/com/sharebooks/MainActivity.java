@@ -38,22 +38,6 @@ public class MainActivity extends AppCompatActivity
             mUserRef = FirebaseDatabase.getInstance().getReference().child("Users").child(mAuth.getCurrentUser().getUid());
         }
 */
-        FloatingActionButton fab_logout = (FloatingActionButton) findViewById(R.id.logout_btn);
-        fab_logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Logout();
-            }
-        });
-
-        FloatingActionButton fab_barcode = (FloatingActionButton) findViewById(R.id.bar_btn);
-        fab_barcode.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                    SendToScan();
-            }
-        });
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -70,6 +54,22 @@ public class MainActivity extends AppCompatActivity
         userMail.setText(mAuth.getCurrentUser().getEmail().toString());
 
         navigationView.setNavigationItemSelectedListener(this);
+
+        FloatingActionButton fab_logout = (FloatingActionButton) findViewById(R.id.logout_btn);
+        fab_logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Logout();
+            }
+        });
+
+        FloatingActionButton fab_barcode = (FloatingActionButton) findViewById(R.id.bar_btn);
+        fab_barcode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SendToScan();
+            }
+        });
     }
 
     private void Logout() {
@@ -84,7 +84,11 @@ public class MainActivity extends AppCompatActivity
     private void SendToScan() {
         Intent scanIntent = new Intent(MainActivity.this, ScanActivity.class);
         startActivity(scanIntent);
-        finish();
+    }
+
+    private void SendToSimpleSearch() {
+        Intent searchIntent = new Intent(MainActivity.this, SimpleAdvancedSearch.class);
+        startActivity(searchIntent);
     }
 
     @Override
@@ -131,9 +135,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_myBooks) {
 
         } else if (id == R.id.nav_Lookup) {
-
-        } else if (id == R.id.nav_AdavancedLookup) {
-
+            SendToSimpleSearch();
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_logout) {

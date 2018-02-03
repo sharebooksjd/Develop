@@ -16,10 +16,7 @@
             android:id="@+id/nav_Lookup"
             android:icon="@drawable/ic_lookup"
             android:title="Búsqueda" />
-        <item
-            android:id="@+id/nav_AdavancedLookup"
-            android:icon="@drawable/ic_advancedlookup"
-            android:title="Búsqueda Avanzada" />
+
     </group>
 
     <item android:title="Opciones">
