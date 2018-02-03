@@ -41,6 +41,7 @@ public class ScanActivity extends AppCompatActivity implements BarcodeReader.Bar
         // ticket details activity by passing barcode
         Intent intent = new Intent(ScanActivity.this, SearchActivity.class);
         intent.putExtra("code", barcode.displayValue);
+        finish();
         startActivity(intent);
     }
 
