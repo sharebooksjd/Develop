@@ -22,7 +22,8 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private FirebaseAuth mAuth;
-    private final static String API_KEY = "";
+    private final static String API_KEY = "AIzaSyDoCFVF5MOK5H67K_vn0uHzKuAyMsqwr8E";
+    private final static String USER_ID = "110246020694123690476";
 //    private DatabaseReference mUserRef;
 
     @Override

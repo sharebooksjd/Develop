@@ -41,6 +41,8 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.2'
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    // recycler view
+    implementation 'com.android.support:recyclerview-v7:26.1.0'
 
     // barcode reader library
     implementation 'info.androidhive:barcode-reader:1.1.5'
@@ -48,10 +50,5 @@ dependencies {
         transitive = true
     }
 }
-
-
-
-
-
 
 apply plugin: 'com.google.gms.google-services'

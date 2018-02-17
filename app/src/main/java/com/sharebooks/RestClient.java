@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RestClient {
 
-    public static final String BASE_URL = "https://openlibrary.org/api/books?bibkeys=ISBN:";
+    public static final String BASE_URL = "https://www.googleapis.com/books/v1/volumes?q=";
     private static Retrofit retrofit = null;
 
 
