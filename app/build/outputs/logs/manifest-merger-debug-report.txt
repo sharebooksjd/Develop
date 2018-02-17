@@ -32,6 +32,7 @@ MERGED from [com.google.firebase:firebase-storage-common:11.8.0] C:\Users\Jorge\
 MERGED from [com.google.android.gms:play-services-basement:11.8.0] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\play-services-basement-11.8.0.aar\0500ca36d3744e21d2f8b805f1549c04\AndroidManifest.xml:17:1-28:12
 MERGED from [com.android.support:support-v4:27.0.2] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\support-v4-27.0.2.aar\91f1da5d3c3b5263fd7af87b596da2dd\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\38c001359ca744b59aa21ac32b5a9d26\AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:recyclerview-v7:27.0.0] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.0.0.aar\4ae53a6cca6da3145c0c1c9929e5fb6c\AndroidManifest.xml:17:1-22:12
 MERGED from [com.crashlytics.sdk.android:beta:1.2.7] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\beta-1.2.7.aar\a97196317cb16f9a5d6ae70f6d55c48b\AndroidManifest.xml:2:1-13:12
 MERGED from [com.crashlytics.sdk.android:crashlytics-core:2.4.1] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\crashlytics-core-2.4.1.aar\520cfd54dc6bea54f268ef71c1cb01ad\AndroidManifest.xml:45:1-56:12
 MERGED from [com.crashlytics.sdk.android:answers:1.4.1] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\answers-1.4.1.aar\11c655a559a06dfcc1e83d2eb9744db7\AndroidManifest.xml:2:1-13:12
@@ -43,7 +44,6 @@ MERGED from [com.android.support:support-fragment:27.0.2] C:\Users\Jorge\.gradle
 MERGED from [com.android.support:support-core-utils:27.0.2] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.0.2.aar\c7e3a09739a26783df1ecda8262ffef0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:animated-vector-drawable:27.0.2] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.0.2.aar\a8f83a2a877eca8dd5c2a9587094798f\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-vector-drawable:27.0.2] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.0.2.aar\285e5671827be606d60afe89720ecc4d\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:recyclerview-v7:27.0.0] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.0.0.aar\4ae53a6cca6da3145c0c1c9929e5fb6c\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:transition:27.0.0] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\transition-27.0.0.aar\dc99651196c353726a59038f1e23e21c\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-media-compat:27.0.2] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.0.2.aar\f5663efa783693793efb107043357832\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-core-ui:27.0.2] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.0.2.aar\28e3072494262e4a673d20fdf95d47dd\AndroidManifest.xml:17:1-22:12
@@ -54,6 +54,7 @@ MERGED from [com.google.firebase:firebase-storage-license:11.8.0] C:\Users\Jorge
 MERGED from [com.google.firebase:firebase-messaging-license:11.8.0] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\firebase-messaging-license-11.8.0.aar\4cf768c8ebe5136879f32a7fa9ac3e28\AndroidManifest.xml:2:1-6:12
 MERGED from [com.google.android.gms:play-services-vision-license:11.8.0] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\play-services-vision-license-11.8.0.aar\5ce4af59474845c20e413a704112bb30\AndroidManifest.xml:2:1-6:12
 MERGED from [com.google.firebase:firebase-analytics-license:11.8.0] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\firebase-analytics-license-11.8.0.aar\dc7f6c3da3bb128f1a8fa8e067e456d9\AndroidManifest.xml:2:1-6:12
+MERGED from [android.arch.lifecycle:runtime:1.0.3] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\runtime-1.0.3.aar\419ac0a0e5bfd8f011ebbd646b744ad9\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-base-license:11.8.0] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\play-services-base-license-11.8.0.aar\e3ece05f01f07c35217765a763847aa6\AndroidManifest.xml:2:1-6:12
 MERGED from [com.google.android.gms:play-services-basement-license:11.8.0] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\play-services-basement-license-11.8.0.aar\6c8dfec58d46f309c0d3a1014c2da7b5\AndroidManifest.xml:2:1-6:12
 MERGED from [com.google.firebase:firebase-common-license:11.8.0] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\firebase-common-license-11.8.0.aar\ca630646656e67e4f6422b6072625fa9\AndroidManifest.xml:2:1-6:12
@@ -65,7 +66,6 @@ MERGED from [com.google.android.gms:play-services-auth-api-phone-license:11.8.0]
 MERGED from [com.google.android.gms:play-services-auth-base-license:11.8.0] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\play-services-auth-base-license-11.8.0.aar\5e2f65f09b688d843b67939bea3f0b96\AndroidManifest.xml:2:1-6:12
 MERGED from [com.google.firebase:firebase-analytics-impl-license:11.8.0] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-license-11.8.0.aar\9d0670107aa9d7d1d4f0aff4db1c6e4c\AndroidManifest.xml:2:1-6:12
 MERGED from [com.google.android.gms:play-services-vision-common-license:11.8.0] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\play-services-vision-common-license-11.8.0.aar\117709bfbb7caa9f94da21c52e356491\AndroidManifest.xml:2:1-6:12
-MERGED from [android.arch.lifecycle:runtime:1.0.3] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\runtime-1.0.3.aar\419ac0a0e5bfd8f011ebbd646b744ad9\AndroidManifest.xml:17:1-24:12
 INJECTED from C:\Users\Jorge\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml:2:1-60:12
 INJECTED from C:\Users\Jorge\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml:2:1-60:12
 INJECTED from C:\Users\Jorge\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml:2:1-60:12
@@ -357,6 +357,8 @@ MERGED from [com.android.support:support-v4:27.0.2] C:\Users\Jorge\.gradle\cache
 MERGED from [com.android.support:support-v4:27.0.2] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\support-v4-27.0.2.aar\91f1da5d3c3b5263fd7af87b596da2dd\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\38c001359ca744b59aa21ac32b5a9d26\AndroidManifest.xml:5:5-7:41
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\38c001359ca744b59aa21ac32b5a9d26\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:recyclerview-v7:27.0.0] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.0.0.aar\4ae53a6cca6da3145c0c1c9929e5fb6c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.0.0] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.0.0.aar\4ae53a6cca6da3145c0c1c9929e5fb6c\AndroidManifest.xml:20:5-44
 MERGED from [com.crashlytics.sdk.android:beta:1.2.7] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\beta-1.2.7.aar\a97196317cb16f9a5d6ae70f6d55c48b\AndroidManifest.xml:7:5-43
 MERGED from [com.crashlytics.sdk.android:beta:1.2.7] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\beta-1.2.7.aar\a97196317cb16f9a5d6ae70f6d55c48b\AndroidManifest.xml:7:5-43
 MERGED from [com.crashlytics.sdk.android:crashlytics-core:2.4.1] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\crashlytics-core-2.4.1.aar\520cfd54dc6bea54f268ef71c1cb01ad\AndroidManifest.xml:50:5-43
@@ -379,8 +381,6 @@ MERGED from [com.android.support:animated-vector-drawable:27.0.2] C:\Users\Jorge
 MERGED from [com.android.support:animated-vector-drawable:27.0.2] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.0.2.aar\a8f83a2a877eca8dd5c2a9587094798f\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-vector-drawable:27.0.2] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.0.2.aar\285e5671827be606d60afe89720ecc4d\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-vector-drawable:27.0.2] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.0.2.aar\285e5671827be606d60afe89720ecc4d\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:recyclerview-v7:27.0.0] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.0.0.aar\4ae53a6cca6da3145c0c1c9929e5fb6c\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:recyclerview-v7:27.0.0] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.0.0.aar\4ae53a6cca6da3145c0c1c9929e5fb6c\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:transition:27.0.0] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\transition-27.0.0.aar\dc99651196c353726a59038f1e23e21c\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:transition:27.0.0] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\transition-27.0.0.aar\dc99651196c353726a59038f1e23e21c\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-media-compat:27.0.2] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.0.2.aar\f5663efa783693793efb107043357832\AndroidManifest.xml:20:5-44
@@ -401,6 +401,8 @@ MERGED from [com.google.android.gms:play-services-vision-license:11.8.0] C:\User
 MERGED from [com.google.android.gms:play-services-vision-license:11.8.0] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\play-services-vision-license-11.8.0.aar\5ce4af59474845c20e413a704112bb30\AndroidManifest.xml:4:5-43
 MERGED from [com.google.firebase:firebase-analytics-license:11.8.0] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\firebase-analytics-license-11.8.0.aar\dc7f6c3da3bb128f1a8fa8e067e456d9\AndroidManifest.xml:4:5-43
 MERGED from [com.google.firebase:firebase-analytics-license:11.8.0] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\firebase-analytics-license-11.8.0.aar\dc7f6c3da3bb128f1a8fa8e067e456d9\AndroidManifest.xml:4:5-43
+MERGED from [android.arch.lifecycle:runtime:1.0.3] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\runtime-1.0.3.aar\419ac0a0e5bfd8f011ebbd646b744ad9\AndroidManifest.xml:20:5-22:41
+MERGED from [android.arch.lifecycle:runtime:1.0.3] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\runtime-1.0.3.aar\419ac0a0e5bfd8f011ebbd646b744ad9\AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.android.gms:play-services-base-license:11.8.0] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\play-services-base-license-11.8.0.aar\e3ece05f01f07c35217765a763847aa6\AndroidManifest.xml:4:5-43
 MERGED from [com.google.android.gms:play-services-base-license:11.8.0] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\play-services-base-license-11.8.0.aar\e3ece05f01f07c35217765a763847aa6\AndroidManifest.xml:4:5-43
 MERGED from [com.google.android.gms:play-services-basement-license:11.8.0] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\play-services-basement-license-11.8.0.aar\6c8dfec58d46f309c0d3a1014c2da7b5\AndroidManifest.xml:4:5-43
@@ -423,8 +425,6 @@ MERGED from [com.google.firebase:firebase-analytics-impl-license:11.8.0] C:\User
 MERGED from [com.google.firebase:firebase-analytics-impl-license:11.8.0] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-license-11.8.0.aar\9d0670107aa9d7d1d4f0aff4db1c6e4c\AndroidManifest.xml:4:5-43
 MERGED from [com.google.android.gms:play-services-vision-common-license:11.8.0] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\play-services-vision-common-license-11.8.0.aar\117709bfbb7caa9f94da21c52e356491\AndroidManifest.xml:4:5-43
 MERGED from [com.google.android.gms:play-services-vision-common-license:11.8.0] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\play-services-vision-common-license-11.8.0.aar\117709bfbb7caa9f94da21c52e356491\AndroidManifest.xml:4:5-43
-MERGED from [android.arch.lifecycle:runtime:1.0.3] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\runtime-1.0.3.aar\419ac0a0e5bfd8f011ebbd646b744ad9\AndroidManifest.xml:20:5-22:41
-MERGED from [android.arch.lifecycle:runtime:1.0.3] C:\Users\Jorge\.gradle\caches\transforms-1\files-1.1\runtime-1.0.3.aar\419ac0a0e5bfd8f011ebbd646b744ad9\AndroidManifest.xml:20:5-22:41
 INJECTED from C:\Users\Jorge\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml
 INJECTED from C:\Users\Jorge\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml
 	android:targetSdkVersion

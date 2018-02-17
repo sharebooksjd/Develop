@@ -39,10 +39,10 @@ public class ScanActivity extends AppCompatActivity implements BarcodeReader.Bar
         barcodeReader.pauseScanning();
 
         // ticket details activity by passing barcode
-        Intent intent = new Intent(ScanActivity.this, SearchActivity.class);
-        intent.putExtra("code", barcode.displayValue);
-        finish();
-        startActivity(intent);
+//        Intent intent = new Intent(ScanActivity.this, SearchActivity.class);
+//       intent.putExtra("code", barcode.displayValue);
+//        finish();
+//        startActivity(intent);
     }
 
     @Override
