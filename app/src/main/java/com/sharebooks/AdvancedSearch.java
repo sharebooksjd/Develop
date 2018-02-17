@@ -6,6 +6,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 
 /**
@@ -13,6 +15,7 @@ import android.view.ViewGroup;
  */
 public class AdvancedSearch extends Fragment {
 
+    private View mMainView;
 
     public AdvancedSearch() {
         // Required empty public constructor
@@ -23,7 +26,21 @@ public class AdvancedSearch extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_advanced_search, container, false);
+        mMainView =inflater.inflate(R.layout.fragment_advanced_search, container, false);
+
+        Spinner order_by = (Spinner) mMainView.findViewById(R.id.order_by);
+        ArrayAdapter<CharSequence> adapter_order_by = ArrayAdapter.createFromResource(getContext(),
+                R.array.order_by_array, android.R.layout.simple_spinner_dropdown_item);
+        adapter_order_by.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        order_by.setAdapter(adapter_order_by);
+
+        Spinner language = (Spinner) mMainView.findViewById(R.id.language);
+        ArrayAdapter<CharSequence> adapter_language = ArrayAdapter.createFromResource(getContext(),
+                R.array.language_array, android.R.layout.simple_spinner_dropdown_item);
+        adapter_language.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        language.setAdapter(adapter_language);
+
+        return mMainView;
     }
 
 }

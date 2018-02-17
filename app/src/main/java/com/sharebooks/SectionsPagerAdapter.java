@@ -19,11 +19,11 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
         switch (position){
             case 0:
-                SimpleSearch requestsFragment = new SimpleSearch();
-                return requestsFragment;
+                SimpleSearch simpleSearch = new SimpleSearch();
+                return simpleSearch;
             case 1:
-                AdvancedSearch chatsFragment = new AdvancedSearch();
-                return chatsFragment;
+                AdvancedSearch advancedSearch = new AdvancedSearch();
+                return advancedSearch;
             default:
                 return null;
         }

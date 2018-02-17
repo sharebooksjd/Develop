@@ -24,7 +24,23 @@
     <string name="facebook_app_id">1393686677408873</string>
     <string name="fb_login_protocol_scheme">fb1393686677408873</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="t_titulo">Título</string>
+    <string name="t_autor">Autor</string>
+    <string name="t_isbn">ISBN</string>
+    <string name="t_editorial">Editorial</string>
+
+
+    <string-array name="language_array">
+        <item>Español</item>
+        <item>Inglés</item>
+        <item>Francés</item>
+        <item>Alemán</item>
+        <item>Portugués</item>
+    </string-array>
+
+    <string-array name="order_by_array">
+        <item>Fecha de publicación</item>
+        <item>Relevancia</item>
+    </string-array>
 
 </resources>
