@@ -1,5 +1,7 @@
 package com.sharebooks;
 
+import android.util.Log;
+
 /**
  * Created by Jorge on 18/02/2018.
  */
@@ -21,8 +23,13 @@ public class Utils {
 
         try {
             int tot = 0;
+            int digit = Integer.parseInt(isbn.substring(0, 3));
+            if(digit != 978){
+                return false;
+            }
             for (int i = 0; i < 12; i++) {
-                int digit = Integer.parseInt(isbn.substring(i, i + 1));
+                digit = Integer.parseInt(isbn.substring(i, i + 1));
+                Log.e("SearchResults", "i:" + i +":" + digit);
                 tot += (i % 2 == 0) ? digit * 1 : digit * 3;
             }
 
@@ -54,8 +61,13 @@ public class Utils {
 
         try {
             int tot = 0;
+            int digit = Integer.parseInt(isbn.substring(0, 3));
+            if(digit != 978){
+                return false;
+            }
             for (int i = 0; i < 9; i++) {
-                int digit = Integer.parseInt(isbn.substring(i, i + 1));
+                digit = Integer.parseInt(isbn.substring(i, i + 1));
+                Log.e("SearchResults", "i:" + i +":" + digit);
                 tot += ((10 - i) * digit);
             }
 

@@ -11,8 +11,8 @@ import retrofit2.http.Query;
 
 public interface RestInterface {
 
-    @GET("q=flowers&orderBy=newest&key=q=flowers&orderBy=newest&key=yourAPIKey")
-    Call<BooksResponse> getBookbyIsbn(/*@Query("isbn") String isbn, @Query("key") String apiKey*/);
+    @GET("volumes?q=/{isbn}")
+    Call<BooksResponse> getBookbyIsbn(@Query("isbn") String isbn, @Query("key") String apiKey);
 
     @GET("volumes?q=/{title}")
     Call<Book> getBookbyTitle(@Query("title") String title, @Query("key") String apiKey);
