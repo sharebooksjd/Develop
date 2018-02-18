@@ -17,7 +17,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
 
-        switch (position){
+        switch (position) {
             case 0:
                 SimpleSearch simpleSearch = new SimpleSearch();
                 return simpleSearch;
@@ -35,9 +35,9 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         return 2;
     }
 
-    public CharSequence getPageTitle(int position){
+    public CharSequence getPageTitle(int position) {
 
-        switch (position){
+        switch (position) {
             case 0:
                 return "Simple";
             case 1:

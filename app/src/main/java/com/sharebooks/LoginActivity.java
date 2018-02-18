@@ -87,19 +87,16 @@ public class LoginActivity extends AppCompatActivity {
 
         // Initialize Facebook Login button
         mCallbackManager = CallbackManager.Factory.create();
-        mFacebookLoginBtn = (ImageButton) findViewById(R.id.fbLoginButton);
-        mGoogleLoginBtn = (ImageButton) findViewById(R.id.googleLoginButton);
+        mFacebookLoginBtn = findViewById(R.id.fbLoginButton);
+        mGoogleLoginBtn = findViewById(R.id.googleLoginButton);
 
-        mSignUpBtn = (Button) findViewById(R.id.signUpBtn);
-        mSignInBtn = (Button) findViewById(R.id.signInBtn);
+        mSignUpBtn = findViewById(R.id.signUpBtn);
+        mSignInBtn = findViewById(R.id.signInBtn);
 
         mMailField = findViewById(R.id.mailForm);
         mPassField = findViewById(R.id.passForm);
 
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
-                .requestEmail()
-                .build();
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestIdToken(getString(R.string.default_web_client_id)).requestEmail().build();
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
@@ -174,8 +171,7 @@ public class LoginActivity extends AppCompatActivity {
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                    Toast.makeText(LoginActivity.this, task.getException().getMessage(),
-                            Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     updateUI(null);
                 }
 
@@ -189,40 +185,33 @@ public class LoginActivity extends AppCompatActivity {
 
         final FirebaseUser firebase_user = user;
 
-        mDb.collection("users")
-                .whereEqualTo("email", user.getEmail())
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful() && task.getResult().isEmpty()) {
-                            final Map<String, Object> dbUser = new HashMap<>();
-                            dbUser.put("id", firebase_user.getUid());
-                            dbUser.put("name", firebase_user.getDisplayName());
-                            dbUser.put("mail", firebase_user.getEmail());
-                            dbUser.put("mail_verified", firebase_user.isEmailVerified());
-                            dbUser.put("provider_id", firebase_user.getProviders().get(0));
+        mDb.collection("users").whereEqualTo("email", user.getEmail()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful() && task.getResult().isEmpty()) {
+                    final Map<String, Object> dbUser = new HashMap<>();
+                    dbUser.put("id", firebase_user.getUid());
+                    dbUser.put("name", firebase_user.getDisplayName());
+                    dbUser.put("mail", firebase_user.getEmail());
+                    dbUser.put("mail_verified", firebase_user.isEmailVerified());
+                    dbUser.put("provider_id", firebase_user.getProviders().get(0));
 
-                            mDb.collection("users")
-                                    .add(dbUser)
-                                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                                        @Override
-                                        public void onSuccess(DocumentReference documentReference) {
-                                            Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
-                                        }
-                                    })
-                                    .addOnFailureListener(new OnFailureListener() {
-                                        @Override
-                                        public void onFailure(@NonNull Exception e) {
-                                            Log.w(TAG, "Error adding document", e);
-                                        }
-                                    });
-                        } else {
-                            Toast.makeText(LoginActivity.this, "Esta cuenta de correo ya se encuentra creada en el sistema mediante "+firebase_user.getProviders().get(0),
-                                    Toast.LENGTH_SHORT).show();
+                    mDb.collection("users").add(dbUser).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                        @Override
+                        public void onSuccess(DocumentReference documentReference) {
+                            Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
                         }
-                    }
-                });
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.w(TAG, "Error adding document", e);
+                        }
+                    });
+                } else {
+                    Toast.makeText(LoginActivity.this, "Esta cuenta de correo ya se encuentra creada en el sistema mediante " + firebase_user.getProviders().get(0), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     private void signUpWithGoogleAcount() {
@@ -276,7 +265,7 @@ public class LoginActivity extends AppCompatActivity {
             } else {
                 updateUI(null);
             }
-        }else if(requestCode == Facebook_SIGN_IN){
+        } else if (requestCode == Facebook_SIGN_IN) {
             mCallbackManager.onActivityResult(requestCode, resultCode, data);
         }
 
@@ -286,51 +275,47 @@ public class LoginActivity extends AppCompatActivity {
         Log.d(Facebook_TAG, "handleFacebookAccessToken:" + token);
 
         final AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
-        mAuth.signInWithCredential(credential)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d(Facebook_TAG, "signInWithCredential:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            AddToDatabase(user);
-                            updateUI(user);
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w(Facebook_TAG, "signInWithCredential:failure", task.getException());
-                            Toast.makeText(LoginActivity.this, task.getException().getMessage(),
-                                    Toast.LENGTH_SHORT).show();
-                            updateUI(null);
-                        }
-                    }
-                });
+        mAuth.signInWithCredential(credential).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    // Sign in success, update UI with the signed-in user's information
+                    Log.d(Facebook_TAG, "signInWithCredential:success");
+                    FirebaseUser user = mAuth.getCurrentUser();
+                    AddToDatabase(user);
+                    updateUI(user);
+                } else {
+                    // If sign in fails, display a message to the user.
+                    Log.w(Facebook_TAG, "signInWithCredential:failure", task.getException());
+                    Toast.makeText(LoginActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    updateUI(null);
+                }
+            }
+        });
     }
 
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
         Log.d(Google_TAG, "firebaseAuthWithGoogle:" + acct.getIdToken());
 
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
-        mAuth.signInWithCredential(credential)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d(Google_TAG, "signInWithCredential:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            AddToDatabase(user);
-                            updateUI(user);
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w(Google_TAG, "signInWithCredential:failure", task.getException());
-                            Toast.makeText(LoginActivity.this, task.getException().getMessage(),
-                                    Toast.LENGTH_SHORT).show();
-                            updateUI(null);
-                        }
+        mAuth.signInWithCredential(credential).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    // Sign in success, update UI with the signed-in user's information
+                    Log.d(Google_TAG, "signInWithCredential:success");
+                    FirebaseUser user = mAuth.getCurrentUser();
+                    AddToDatabase(user);
+                    updateUI(user);
+                } else {
+                    // If sign in fails, display a message to the user.
+                    Log.w(Google_TAG, "signInWithCredential:failure", task.getException());
+                    Toast.makeText(LoginActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    updateUI(null);
+                }
 
-                    }
-                });
+            }
+        });
     }
 
     private boolean validateForm() {
@@ -356,7 +341,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void updateUI(FirebaseUser currentUser) {
-        if(currentUser != null){
+        if (currentUser != null) {
             Intent startIntent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(startIntent);
             finish();

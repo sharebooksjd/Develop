@@ -1,6 +1,7 @@
 package com.sharebooks;
 
 import android.content.Intent;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,16 +9,20 @@ import android.util.SparseArray;
 import android.widget.Toast;
 
 import com.google.android.gms.vision.barcode.Barcode;
+
 import java.util.List;
 
 import info.androidhive.barcode.BarcodeReader;
 
 import static com.sharebooks.R.id.barcode_scanner;
 
-public class ScanActivity extends AppCompatActivity implements BarcodeReader.BarcodeReaderListener{
+import com.sharebooks.Utils;
+
+public class ScanActivity extends AppCompatActivity implements BarcodeReader.BarcodeReaderListener {
 
     private static final String TAG = "ScanActivity";
     private BarcodeReader barcodeReader;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +33,10 @@ public class ScanActivity extends AppCompatActivity implements BarcodeReader.Bar
     @Override
     public void onScanned(final Barcode barcode) {
         Log.e(TAG, "onScanned: " + barcode.displayValue);
+        int length;
+        boolean isbnVerified = false;
+
+
         barcodeReader.playBeep();
 
         runOnUiThread(new Runnable() {
@@ -38,11 +47,29 @@ public class ScanActivity extends AppCompatActivity implements BarcodeReader.Bar
         });
         barcodeReader.pauseScanning();
 
-        // ticket details activity by passing barcode
-//        Intent intent = new Intent(ScanActivity.this, SearchActivity.class);
-//       intent.putExtra("code", barcode.displayValue);
-//        finish();
-//        startActivity(intent);
+        length = barcode.displayValue.length();
+        if (length == 10) {
+            isbnVerified = Utils.validateIsbn10(barcode.displayValue);
+        } else if (length == 13) {
+            isbnVerified = Utils.validateIsbn13(barcode.displayValue);
+        } else {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    Toast.makeText(getApplicationContext(), "ISBN scanned is wrong: " + barcode.displayValue, Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+
+        if (isbnVerified) {
+            Intent intent = new Intent(ScanActivity.this, SearchResultsActivity.class);
+            intent.putExtra("isbn", barcode.displayValue);
+            finish();
+            startActivity(intent);
+        } else {
+            barcodeReader.resumeScanning();
+        }
+
     }
 
     @Override
@@ -78,6 +105,11 @@ public class ScanActivity extends AppCompatActivity implements BarcodeReader.Bar
     public void onCameraPermissionDenied() {
         Toast.makeText(getApplicationContext(), "Camera permission denied!", Toast.LENGTH_LONG).show();
         finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        NavUtils.navigateUpFromSameTask(this);
     }
 
 }

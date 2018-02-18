@@ -13,11 +13,12 @@ import java.util.List;
 
 import com.sharebooks.R;
 import com.sharebooks.Book;
+
 /**
  * Created by Jorge on 17/02/2018.
  */
 
-public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder>{
+public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder> {
     private List<Book> books;
     private int rowLayout;
     private Context context;
@@ -32,11 +33,11 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
 
         public BookViewHolder(View v) {
             super(v);
-            booksLayout = (LinearLayout) v.findViewById(R.id.books_layout);
-            bookTitle = (TextView) v.findViewById(R.id.title);
-            author = (TextView) v.findViewById(R.id.author);
-            bookCover = (ImageView) v.findViewById(R.id.coverPage);
-            bookDescription = (TextView) v.findViewById(R.id.description);
+            booksLayout = v.findViewById(R.id.books_layout);
+            bookTitle = v.findViewById(R.id.title);
+            author = v.findViewById(R.id.author);
+            bookCover = v.findViewById(R.id.coverPage);
+            bookDescription = v.findViewById(R.id.description);
         }
     }
 
@@ -47,8 +48,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
     }
 
     @Override
-    public BookAdapter.BookViewHolder onCreateViewHolder(ViewGroup parent,
-                                                            int viewType) {
+    public BookAdapter.BookViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(rowLayout, parent, false);
         return new BookViewHolder(view);
     }

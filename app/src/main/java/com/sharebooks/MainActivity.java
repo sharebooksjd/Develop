@@ -18,8 +18,7 @@ import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private FirebaseAuth mAuth;
     private final static String API_KEY = "AIzaSyDoCFVF5MOK5H67K_vn0uHzKuAyMsqwr8E";
@@ -30,7 +29,7 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         mAuth = FirebaseAuth.getInstance();
@@ -39,20 +38,21 @@ public class MainActivity extends AppCompatActivity
             mUserRef = FirebaseDatabase.getInstance().getReference().child("Users").child(mAuth.getCurrentUser().getUid());
         }
 */
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        View hView =  navigationView.getHeaderView(0);
+        View hView = navigationView.getHeaderView(0);
 
-        TextView userName = (TextView) hView.findViewById(R.id.userName);
-        userName.setText(mAuth.getCurrentUser().getDisplayName().toString());
+        if (mAuth != null) {
+            TextView userName = hView.findViewById(R.id.userName);
+            userName.setText(mAuth.getCurrentUser().getDisplayName().toString());
 
-        TextView userMail = (TextView) hView.findViewById(R.id.userMail);
-        userMail.setText(mAuth.getCurrentUser().getEmail().toString());
+            TextView userMail = hView.findViewById(R.id.userMail);
+            userMail.setText(mAuth.getCurrentUser().getEmail().toString());
+        }
 
         navigationView.setNavigationItemSelectedListener(this);
 
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity
 
     private void Logout() {
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){
+        if (currentUser != null) {
             mAuth.signOut();
             LoginManager.getInstance().logOut();
             sendToStart();
@@ -98,10 +98,11 @@ public class MainActivity extends AppCompatActivity
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
-        if(currentUser == null){
+        if (currentUser == null) {
             sendToStart();
         }
     }
+
     private void sendToStart() {
         Intent startIntent = new Intent(MainActivity.this, LoginActivity.class);
         startActivity(startIntent);

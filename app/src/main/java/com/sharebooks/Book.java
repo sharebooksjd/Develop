@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gson.annotations.*;
+
 /**
  * Created by Jorge on 01/02/2018.
  */

@@ -54,9 +54,13 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-        <activity android:name=".ScanActivity"></activity>
-        <activity android:name=".SimpleAdvancedSearch"
-            android:parentActivityName=".MainActivity">></activity>
+        <activity android:name=".ScanActivity" />
+        <activity
+            android:name=".SimpleAdvancedSearch"
+            android:parentActivityName=".MainActivity">
+            >
+        </activity>
+        <activity android:name=".SearchResultsActivity"></activity>
     </application>
 
 </manifest>

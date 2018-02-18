@@ -11,19 +11,19 @@ import retrofit2.http.Query;
 
 public interface RestInterface {
 
-    @GET("book/{isbn}")
-    Call<Book> getBookbyIsbn(@Path("isbn") String isbn, @Query("key") String apiKey);
+    @GET("q=flowers&orderBy=newest&key=q=flowers&orderBy=newest&key=yourAPIKey")
+    Call<BooksResponse> getBookbyIsbn(/*@Query("isbn") String isbn, @Query("key") String apiKey*/);
 
-    @GET("book/{title}")
-    Call<Book> getBookbyTitle(@Path("title") String title, @Query("key") String apiKey);
+    @GET("volumes?q=/{title}")
+    Call<Book> getBookbyTitle(@Query("title") String title, @Query("key") String apiKey);
 
-    @GET("book/{author}")
-    Call<Book> getBookbyAuthor(@Path("author") String author, @Query("key") String apiKey);
+    @GET("volumes?q=/{author}")
+    Call<Book> getBookbyAuthor(@Query("author") String author, @Query("key") String apiKey);
 
-    @GET("book/{author}/{title}")
+    @GET("volumes?q=/{author}/{title}")
     Call<Book> getBookbyAuthorAndTitle(@Path("author") String author, @Path("author") String title, @Query("key") String apiKey);
 
-    @GET("book/{isbn}/{title}")
+    @GET("volumes?q=/{isbn}/{title}")
     Call<Book> getBookbyIsbnAndAuthor(@Path("author") String author, @Path("author") String title, @Query("key") String apiKey);
 }
 
