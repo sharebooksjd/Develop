@@ -1,6 +1,7 @@
 package com.sharebooks;
 
 import android.content.Context;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,8 @@ import java.util.List;
 
 import com.sharebooks.R;
 import com.sharebooks.Book;
+import com.squareup.picasso.MemoryPolicy;
+import com.squareup.picasso.Picasso;
 
 /**
  * Created by Jorge on 17/02/2018.
@@ -56,10 +59,20 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
 
     @Override
     public void onBindViewHolder(BookViewHolder holder, final int position) {
-        holder.bookTitle.setText(books.get(position).getTitle());
-        holder.author.setText(books.get(position).getAuthor());
-        holder.bookCover.setImageURI(books.get(position).getBookCover());
-        holder.bookDescription.setText(books.get(position).getDescription());
+
+        holder.bookTitle.setText((CharSequence) books.get(position).getVolInfo().getTitle());
+        //holder.author.setText(books.get(position).getVolInfo().getAuthors());
+//        holder.bookCover.setImageURI(Uri.parse(books.get(position).getVolInfo().getImageLinks().getThumbnail()));
+        if ( (books.get(position).getVolInfo().getImageLinks() != null) && !(books.get(position).getVolInfo().getImageLinks().getThumbnail().isEmpty())){
+            Picasso.with(context)
+                    .load(books.get(position).getVolInfo().getImageLinks().getThumbnail())
+                    .resize(40,60)
+                    .centerCrop()
+                    .memoryPolicy(MemoryPolicy.NO_CACHE)
+                    .memoryPolicy(MemoryPolicy.NO_STORE)
+                    .into(holder.bookCover);
+        }
+        holder.bookDescription.setText(books.get(position).getVolInfo().getDescription());
     }
 
     @Override

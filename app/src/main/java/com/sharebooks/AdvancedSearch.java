@@ -2,12 +2,14 @@ package com.sharebooks;
 
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 
 /**
@@ -16,6 +18,13 @@ import android.widget.Spinner;
 public class AdvancedSearch extends Fragment {
 
     private View mMainView;
+    private TextView mTitle;
+    private TextView mAuthor;
+    private TextView mIsbn;
+
+    private FloatingActionButton mSearch;
+    private FloatingActionButton mScan;
+    private FloatingActionButton mClear;
 
     public AdvancedSearch() {
         // Required empty public constructor
@@ -39,5 +48,6 @@ public class AdvancedSearch extends Fragment {
 
         return mMainView;
     }
+
 
 }

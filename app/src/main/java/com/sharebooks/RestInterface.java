@@ -11,14 +11,14 @@ import retrofit2.http.Query;
 
 public interface RestInterface {
 
-    @GET("volumes?q=/{isbn}")
-    Call<BooksResponse> getBookbyIsbn(@Query("isbn") String isbn, @Query("key") String apiKey);
+    @GET("volumes")
+    Call<BooksResponse> getBookbyIsbn(@Query("q") String isbn, @Query("key") String apiKey);
 
-    @GET("volumes?q=/{title}")
-    Call<Book> getBookbyTitle(@Query("title") String title, @Query("key") String apiKey);
+    @GET("volumes")
+    Call<Book> getBookbyTitle(@Query("q") String title, @Query("key") String apiKey);
 
-    @GET("volumes?q=/{author}")
-    Call<Book> getBookbyAuthor(@Query("author") String author, @Query("key") String apiKey);
+    @GET("volumes")
+    Call<Book> getBookbyAuthor(@Query("q") String author, @Query("key") String apiKey);
 
     @GET("volumes?q=/{author}/{title}")
     Call<Book> getBookbyAuthorAndTitle(@Path("author") String author, @Path("author") String title, @Query("key") String apiKey);

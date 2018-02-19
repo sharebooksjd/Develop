@@ -12,7 +12,7 @@
         android:layout_height="match_parent">
 
         <EditText
-            android:id="@+id/title"
+            android:id="@+id/simpleSearchTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
@@ -22,7 +22,7 @@
             android:ems="10"
             android:hint="@string/t_titulo"
             android:inputType="textPersonName"
-            app:layout_constraintBottom_toTopOf="@+id/autor"
+            app:layout_constraintBottom_toTopOf="@+id/simpleSearchAutor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -30,7 +30,7 @@
             app:layout_constraintVertical_chainStyle="packed" />
 
         <EditText
-            android:id="@+id/autor"
+            android:id="@+id/simpleSearchAutor"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
@@ -40,14 +40,14 @@
             android:ems="10"
             android:hint="@string/t_autor"
             android:inputType="textPersonName"
-            app:layout_constraintBottom_toTopOf="@+id/isbn"
+            app:layout_constraintBottom_toTopOf="@+id/simpleSearchIsbn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/title" />
+            app:layout_constraintTop_toBottomOf="@+id/simpleSearchTitle" />
 
         <EditText
-            android:id="@+id/isbn"
+            android:id="@+id/simpleSearchIsbn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -62,10 +62,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/autor" />
+            app:layout_constraintTop_toBottomOf="@+id/simpleSearchAutor" />
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/mBtn_Clean"
+            android:id="@+id/simpleSearchBtnClear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -75,11 +75,11 @@
             app:backgroundTint="@color/colorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/mBtn_BarCode"
+            app:layout_constraintStart_toEndOf="@+id/simpleSearchBtnScan"
             app:layout_constraintTop_toTopOf="@+id/guideline5" />
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/mBtn_Search"
+            android:id="@+id/simpleSearchBtnSearch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
@@ -87,23 +87,23 @@
             android:clickable="true"
             android:src="@drawable/ic_lookup"
             app:backgroundTint="@color/colorPrimary"
-            app:layout_constraintEnd_toStartOf="@+id/mBtn_BarCode"
+            app:layout_constraintEnd_toStartOf="@+id/simpleSearchBtnScan"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline5" />
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/mBtn_BarCode"
+            android:id="@+id/simpleSearchBtnScan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:clickable="true"
             android:src="@drawable/bar_code"
             app:backgroundTint="@color/colorPrimary"
-            app:layout_constraintEnd_toStartOf="@+id/mBtn_Clean"
+            app:layout_constraintEnd_toStartOf="@+id/simpleSearchBtnClear"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/mBtn_Search"
+            app:layout_constraintStart_toEndOf="@+id/simpleSearchBtnSearch"
             app:layout_constraintTop_toTopOf="@+id/guideline5" />
 
         <android.support.constraint.Guideline

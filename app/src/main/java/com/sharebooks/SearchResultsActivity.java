@@ -16,7 +16,7 @@ import retrofit2.Response;
 
 public class SearchResultsActivity extends AppCompatActivity {
 
-    private final static String API_KEY = "AIzaSyDoCFVF5MOK5H67K_vn0uHzKuAyMsqwr8E";
+    private final static String API_KEY = "AIzaSyDbzq5M2nflOHORE7TFkoReopWbTE2_YFo";
     private final static String USER_ID = "110246020694123690476";
 
     TextView mIsbn;
@@ -41,7 +41,7 @@ public class SearchResultsActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(Call<BooksResponse> call, Response<BooksResponse> response) {
                     int statusCode = response.code();
-                    List<Book> books = response.body().getResults();
+                    List<Book> books = response.body().getItems();
                     recyclerView.setAdapter(new BookAdapter(books, R.layout.list_item_book, getApplicationContext()));
                 }
 

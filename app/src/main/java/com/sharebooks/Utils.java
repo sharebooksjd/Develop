@@ -62,9 +62,9 @@ public class Utils {
         try {
             int tot = 0;
             int digit = Integer.parseInt(isbn.substring(0, 3));
-            if(digit != 978){
-                return false;
-            }
+//            if(digit != 978){
+//                return false;
+//            }
             for (int i = 0; i < 9; i++) {
                 digit = Integer.parseInt(isbn.substring(i, i + 1));
                 Log.e("SearchResults", "i:" + i +":" + digit);

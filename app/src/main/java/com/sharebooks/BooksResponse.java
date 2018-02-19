@@ -8,44 +8,24 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class BooksResponse {
-    @SerializedName("page")
-    private int page;
-    @SerializedName("results")
-    private List<Book> results;
-    @SerializedName("total_results")
-    private int totalResults;
-    @SerializedName("total_pages")
-    private int totalPages;
+    @SerializedName("totalItems")
+    private int totalItems;
+    @SerializedName("items")
+    private List<Book> items;
 
-    public int getPage() {
-        return page;
+    public int getTotalItems() {
+        return totalItems;
     }
 
-    public void setPage(int page) {
-        this.page = page;
+    public void setTotalItems(int totalItems) {
+        this.totalItems = totalItems;
     }
 
-    public List<Book> getResults() {
-        return results;
+    public List<Book> getItems() {
+        return items;
     }
 
-    public void setResults(List<Book> results) {
-        this.results = results;
-    }
-
-    public int getTotalResults() {
-        return totalResults;
-    }
-
-    public void setTotalResults(int totalResults) {
-        this.totalResults = totalResults;
-    }
-
-    public int getTotalPages() {
-        return totalPages;
-    }
-
-    public void setTotalPages(int totalPages) {
-        this.totalPages = totalPages;
+    public void setItems(List<Book> items) {
+        this.items = items;
     }
 }

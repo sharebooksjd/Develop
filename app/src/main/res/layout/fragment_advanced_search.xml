@@ -12,7 +12,7 @@
         android:layout_height="match_parent">
 
         <EditText
-            android:id="@+id/title"
+            android:id="@+id/advancedSearchTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
@@ -21,14 +21,14 @@
             android:ems="10"
             android:hint="@string/t_titulo"
             android:inputType="textPersonName"
-            app:layout_constraintBottom_toTopOf="@+id/autor"
+            app:layout_constraintBottom_toTopOf="@+id/advancedSearchAutor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed" />
 
         <EditText
-            android:id="@+id/autor"
+            android:id="@+id/advancedSearchAutor"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
@@ -38,13 +38,13 @@
             android:ems="10"
             android:hint="@string/t_autor"
             android:inputType="textPersonName"
-            app:layout_constraintBottom_toTopOf="@+id/isbn"
+            app:layout_constraintBottom_toTopOf="@+id/advancedSearchIsbn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/title" />
+            app:layout_constraintTop_toBottomOf="@+id/advancedSearchTitle" />
 
         <EditText
-            android:id="@+id/isbn"
+            android:id="@+id/advancedSearchIsbn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
@@ -54,13 +54,13 @@
             android:ems="10"
             android:hint="@string/t_isbn"
             android:inputType="number"
-            app:layout_constraintBottom_toTopOf="@+id/editorial"
+            app:layout_constraintBottom_toTopOf="@+id/advancedSearchEditorial"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/autor" />
+            app:layout_constraintTop_toBottomOf="@+id/advancedSearchAutor" />
 
         <EditText
-            android:id="@+id/editorial"
+            android:id="@+id/advancedSearchEditorial"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
@@ -70,13 +70,13 @@
             android:ems="10"
             android:hint="@string/t_editorial"
             android:inputType="number"
-            app:layout_constraintBottom_toTopOf="@+id/language"
+            app:layout_constraintBottom_toTopOf="@+id/advancedSearchLanguage"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/isbn" />
+            app:layout_constraintTop_toBottomOf="@+id/advancedSearchIsbn" />
 
         <Spinner
-            android:id="@+id/order_by"
+            android:id="@+id/advancedSearchOrderBy"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
@@ -86,23 +86,23 @@
             app:layout_constraintBottom_toTopOf="@+id/guideline4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/language" />
+            app:layout_constraintTop_toBottomOf="@+id/advancedSearchLanguage" />
 
         <Spinner
-            android:id="@+id/language"
+            android:id="@+id/advancedSearchLanguage"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:backgroundTint="@color/colorPrimary"
-            app:layout_constraintBottom_toTopOf="@+id/order_by"
+            app:layout_constraintBottom_toTopOf="@+id/advancedSearchOrderBy"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editorial" />
+            app:layout_constraintTop_toBottomOf="@+id/advancedSearchEditorial" />
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/mBtn_Clean"
+            android:id="@+id/advancedSearchBtnClear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -114,11 +114,11 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/mBtn_BarCode"
+            app:layout_constraintStart_toEndOf="@+id/advancedSearchBtnScan"
             app:layout_constraintTop_toTopOf="@+id/guideline4" />
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/mBtn_Search"
+            android:id="@+id/advancedSearchBtnSearch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -128,14 +128,14 @@
             android:src="@drawable/ic_lookup"
             app:backgroundTint="@color/colorPrimary"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/mBtn_BarCode"
+            app:layout_constraintEnd_toStartOf="@+id/advancedSearchBtnScan"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline4" />
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/mBtn_BarCode"
+            android:id="@+id/advancedSearchBtnScan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -144,9 +144,9 @@
             android:src="@drawable/bar_code"
             app:backgroundTint="@color/colorPrimary"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/mBtn_Clean"
+            app:layout_constraintEnd_toStartOf="@+id/advancedSearchBtnClear"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/mBtn_Search"
+            app:layout_constraintStart_toEndOf="@+id/advancedSearchBtnSearch"
             app:layout_constraintTop_toTopOf="@+id/guideline4" />
 
         <android.support.constraint.Guideline

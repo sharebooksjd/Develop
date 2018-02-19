@@ -72,7 +72,9 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-        <activity android:name="com.sharebooks.ScanActivity" />
+        <activity
+            android:name="com.sharebooks.ScanActivity"
+            android:parentActivityName="com.sharebooks.MainActivity" />
         <activity
             android:name="com.sharebooks.SimpleAdvancedSearch"
             android:parentActivityName="com.sharebooks.MainActivity" >
