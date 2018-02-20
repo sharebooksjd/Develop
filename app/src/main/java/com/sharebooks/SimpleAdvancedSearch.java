@@ -1,5 +1,6 @@
 package com.sharebooks;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -19,9 +20,7 @@ public class SimpleAdvancedSearch extends AppCompatActivity {
 
     private ViewPager mViewPager;
     private SectionsPagerAdapter mSectionsPagerAdapter;
-
     private DatabaseReference mUserRef;
-
     private TabLayout mTabLayout;
 
     @Override

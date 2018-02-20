@@ -1,5 +1,6 @@
 package com.sharebooks;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -36,9 +37,52 @@ public class SimpleSearch extends Fragment {
         mIsbn = view.findViewById(R.id.simpleSearchIsbn);
 
         mSearch = view.findViewById(R.id.simpleSearchBtnSearch);
-        mScan = view.findViewById(R.id.simpleSearchBtnBarCode);
-        mClear = view.findViewById(R.id.simpleSearchBtnClean);
+        mScan = view.findViewById(R.id.simpleSearchBtnScan);
+        mClear = view.findViewById(R.id.simpleSearchBtnClear);
 
+        mSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                searchByFields(mTitle.getText().toString(), mAuthor.getText().toString(), mIsbn.getText().toString());
+            }
+        });
+
+        mScan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendToScan();
+            }
+        });
+
+        mClear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clearFields();
+            }
+        });
     }
 
+    public void clearFields() {
+        mTitle.setText("");
+        mAuthor.setText("");
+        mIsbn.setText("");
+    }
+
+    private void sendToScan() {
+        Intent scanIntent = new Intent(getActivity(), ScanActivity.class);
+        startActivity(scanIntent);
+    }
+
+    private void searchByFields(String title, String author, String isbn) {
+        Intent intent = new Intent(getActivity(), SearchResultsActivity.class);
+        if (title.isEmpty())title = "";
+        if (author.isEmpty())author = "";
+        if (isbn.isEmpty())isbn = "";
+
+        intent.putExtra("title", title);
+        intent.putExtra("author", author);
+        intent.putExtra("isbn", isbn);
+        getActivity().finish();
+        startActivity(intent);
+    }
 }
