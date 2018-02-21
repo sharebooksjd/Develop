@@ -12,10 +12,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-
-/**
- * A simple {@link Fragment} subclass.
- */
 public class AdvancedSearch extends Fragment {
 
     private View mMainView;
@@ -30,7 +26,6 @@ public class AdvancedSearch extends Fragment {
     public AdvancedSearch() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

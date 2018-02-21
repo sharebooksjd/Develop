@@ -60,19 +60,29 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
     @Override
     public void onBindViewHolder(BookViewHolder holder, final int position) {
 
-        holder.bookTitle.setText((CharSequence) books.get(position).getVolInfo().getTitle());
-        //holder.author.setText(books.get(position).getVolInfo().getAuthors());
-//        holder.bookCover.setImageURI(Uri.parse(books.get(position).getVolInfo().getImageLinks().getThumbnail()));
-        if ( (books.get(position).getVolInfo().getImageLinks() != null) && !(books.get(position).getVolInfo().getImageLinks().getThumbnail().isEmpty())){
+        holder.bookTitle.setText((CharSequence) books.get(position).getVolumeInfo().getTitle());
+
+        int authors_size = 0;
+        if(books.get(position).getVolumeInfo().getAuthors() != null)
+         authors_size = books.get(position).getVolumeInfo().getAuthors().size();
+        String authors = "";
+        for(int i=0; i < authors_size; i++){
+            if (i != 0) {
+                authors += ",";
+            }
+            authors += books.get(position).getVolumeInfo().getAuthors().get(i);
+        }
+        holder.author.setText(authors);
+        if ( (books.get(position).getVolumeInfo().getImageLinks() != null) && !(books.get(position).getVolumeInfo().getImageLinks().getThumbnail().isEmpty())){
             Picasso.with(context)
-                    .load(books.get(position).getVolInfo().getImageLinks().getThumbnail())
+                    .load(books.get(position).getVolumeInfo().getImageLinks().getThumbnail())
                     .resize(40,60)
                     .centerCrop()
                     .memoryPolicy(MemoryPolicy.NO_CACHE)
                     .memoryPolicy(MemoryPolicy.NO_STORE)
                     .into(holder.bookCover);
         }
-        holder.bookDescription.setText(books.get(position).getVolInfo().getDescription());
+        holder.bookDescription.setText(books.get(position).getVolumeInfo().getDescription());
     }
 
     @Override
