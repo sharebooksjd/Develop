@@ -37,6 +37,7 @@ public class SearchResultsActivity extends AppCompatActivity {
                     RestClient.getClient().create(RestInterface.class);
 
             Call<BooksResponse> call = apiService.getBookByIsbn(isbn, API_KEY);
+            //Call<BooksResponse> call = apiService.getBook(isbn, title, author, API_KEY);
             call.enqueue(new Callback<BooksResponse>() {
                 @Override
                 public void onResponse(Call<BooksResponse> call, Response<BooksResponse> response) {

@@ -1,6 +1,8 @@
 package com.sharebooks;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -21,13 +23,13 @@ import com.squareup.picasso.Picasso;
  * Created by Jorge on 17/02/2018.
  */
 
-public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder> {
+public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder>{
     private List<Book> books;
     private int rowLayout;
     private Context context;
 
 
-    public static class BookViewHolder extends RecyclerView.ViewHolder {
+    public class BookViewHolder extends RecyclerView.ViewHolder {
         LinearLayout booksLayout;
         ImageView bookCover;
         TextView bookTitle;
@@ -42,6 +44,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
             bookCover = v.findViewById(R.id.coverPage);
             bookDescription = v.findViewById(R.id.description);
         }
+
     }
 
     public BookAdapter(List<Book> books, int rowLayout, Context context) {
@@ -58,14 +61,15 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
 
 
     @Override
-    public void onBindViewHolder(BookViewHolder holder, final int position) {
+    public void onBindViewHolder(final BookViewHolder holder, final int position) {
 
         holder.bookTitle.setText((CharSequence) books.get(position).getVolumeInfo().getTitle());
 
         int authors_size = 0;
+        String authors = "";
         if(books.get(position).getVolumeInfo().getAuthors() != null)
          authors_size = books.get(position).getVolumeInfo().getAuthors().size();
-        String authors = "";
+        authors = "";
         for(int i=0; i < authors_size; i++){
             if (i != 0) {
                 authors += ",";
@@ -83,6 +87,33 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
                     .into(holder.bookCover);
         }
         holder.bookDescription.setText(books.get(position).getVolumeInfo().getDescription());
+
+        final String finalAuthors = authors;
+        holder.bookCover.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, DetailedActivity.class);
+                //intent.putExtra("isbn", bookDescription.getText().toString());
+                intent.putExtra("author", finalAuthors);
+                intent.putExtra("title", holder.bookTitle.getText().toString());
+                intent.putExtra("description", holder.bookDescription.getText().toString());
+                //intent.putExtra("image", holder.bookDescription.getUrls().toString());
+                context.startActivity(intent);
+            }
+        });
+
+        holder.bookDescription.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, DetailedActivity.class);
+                //intent.putExtra("isbn", bookDescription.getText().toString());
+                intent.putExtra("author",  holder.bookTitle.getText().toString());
+                intent.putExtra("title", holder.bookTitle.getText().toString());
+                intent.putExtra("description", holder.bookDescription.getText().toString());
+                //intent.putExtra("image", holder.bookDescription.getUrls().toString());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

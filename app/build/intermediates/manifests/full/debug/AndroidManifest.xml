@@ -82,6 +82,7 @@
             >
         </activity>
         <activity android:name="com.sharebooks.SearchResultsActivity" />
+        <activity android:name="com.sharebooks.DetailedActivity" />
 
         <provider
             android:name="com.crashlytics.android.CrashlyticsInitProvider"

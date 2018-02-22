@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.sharebooks.DetailedActivity">
+
+    <ImageView
+        android:id="@+id/detailedBookImage"
+        android:layout_width="84dp"
+        android:layout_height="85dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        app:srcCompat="@drawable/ic_libros"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/detailedBookTitle"
+        android:layout_width="114dp"
+        android:layout_height="33dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="40dp"
+        android:layout_toEndOf="@+id/detailedBookImage"
+        android:text="TextView"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="123dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/detailedBookAuthor"
+        android:layout_width="114dp"
+        android:layout_height="32dp"
+        android:layout_alignStart="@+id/detailedBookTitle"
+        android:layout_below="@+id/detailedBookTitle"
+        android:text="TextView"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="123dp"
+        tools:layout_editor_absoluteY="49dp" />
+
+    <TextView
+        android:id="@+id/detailedBookDesc"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:layout_below="@+id/detailedBookImage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="123dp"
+        tools:layout_editor_absoluteY="87dp" />
+</RelativeLayout>
