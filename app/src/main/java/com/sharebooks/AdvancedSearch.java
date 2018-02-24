@@ -18,6 +18,7 @@ public class AdvancedSearch extends Fragment {
     private TextView mTitle;
     private TextView mAuthor;
     private TextView mIsbn;
+    private TextView mEditorial;
 
     private FloatingActionButton mSearch;
     private FloatingActionButton mScan;
@@ -45,6 +46,7 @@ public class AdvancedSearch extends Fragment {
         mTitle = mMainView.findViewById(R.id.advancedSearchTitle);
         mAuthor = mMainView.findViewById(R.id.advancedSearchAutor);
         mIsbn = mMainView.findViewById(R.id.advancedSearchIsbn);
+        mEditorial = mMainView.findViewById(R.id.advancedSearchEditorial);
 
         mSearch = mMainView.findViewById(R.id.advancedSearchBtnSearch);
         mScan = mMainView.findViewById(R.id.advancedSearchBtnScan);
@@ -78,6 +80,7 @@ public class AdvancedSearch extends Fragment {
         mTitle.setText("");
         mAuthor.setText("");
         mIsbn.setText("");
+        mEditorial.setText("");
     }
 
     private void sendToScan() {
