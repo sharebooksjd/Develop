@@ -4392,12 +4392,14 @@ public final class R {
     public static final int search_menu_title=0x7f0e0075;
     public static final int status_bar_notification_info_overflow=0x7f0e0076;
     public static final int t_autor=0x7f0e0077;
-    public static final int t_editorial=0x7f0e0078;
-    public static final int t_isbn=0x7f0e0079;
-    public static final int t_titulo=0x7f0e007a;
-    public static final int title_activity_login=0x7f0e007b;
-    public static final int title_activity_main=0x7f0e007c;
-    public static final int use_flash=0x7f0e007d;
+    public static final int t_autor_del_libro=0x7f0e0078;
+    public static final int t_descripci_n_del_libro=0x7f0e0079;
+    public static final int t_editorial=0x7f0e007a;
+    public static final int t_isbn=0x7f0e007b;
+    public static final int t_titulo=0x7f0e007c;
+    public static final int title_activity_login=0x7f0e007d;
+    public static final int title_activity_main=0x7f0e007e;
+    public static final int use_flash=0x7f0e007f;
   }
   public static final class style {
     public static final int AlertDialog_AppCompat=0x7f0f0000;

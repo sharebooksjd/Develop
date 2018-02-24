@@ -28,6 +28,8 @@
     <string name="t_autor">Autor</string>
     <string name="t_isbn">ISBN</string>
     <string name="t_editorial">Editorial</string>
+    <string name="t_autor_del_libro">Autor del libro</string>
+    <string name="t_descripci_n_del_libro">Descripción del libro</string>
 
 
     <string-array name="language_array">

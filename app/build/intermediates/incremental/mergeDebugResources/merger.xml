@@ -2114,7 +2114,7 @@
     </string-array><string-array name="order_by_array">
         <item>Fecha de publicación</item>
         <item>Relevancia</item>
-    </string-array></file><file path="C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\res\values\styles.xml" qualifiers=""><style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    </string-array><string name="t_autor_del_libro">Autor del libro</string><string name="t_descripci_n_del_libro">Descripción del libro</string></file><file path="C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\res\values\styles.xml" qualifiers=""><style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
