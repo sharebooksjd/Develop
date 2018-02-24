@@ -43,7 +43,7 @@ public class SearchResultsActivity extends AppCompatActivity {
                 public void onResponse(Call<BooksResponse> call, Response<BooksResponse> response) {
                     int statusCode = response.code();
                     List<Book> books = response.body().getItems();
-                    recyclerView.setAdapter(new BookAdapter(books, R.layout.list_item_book, getApplicationContext()));
+                    recyclerView.setAdapter(new BookAdapter(books, R.layout.list_item_book, SearchResultsActivity.this));
                 }
 
                 @Override
