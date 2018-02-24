@@ -11,6 +11,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import static com.facebook.FacebookSdk.getApplicationContext;
 
 public class AdvancedSearch extends Fragment {
 
@@ -55,7 +58,7 @@ public class AdvancedSearch extends Fragment {
         mSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                searchByFields(mTitle.getText().toString(), mAuthor.getText().toString(), mIsbn.getText().toString());
+                searchByFields(mTitle.getText().toString(), mAuthor.getText().toString(), mIsbn.getText().toString(), mEditorial.getText().toString());
             }
         });
 
@@ -88,16 +91,34 @@ public class AdvancedSearch extends Fragment {
         startActivity(scanIntent);
     }
 
-    private void searchByFields(String title, String author, String isbn) {
-        Intent intent = new Intent(getActivity(), SearchResultsActivity.class);
-        if (title.isEmpty())title = "";
-        if (author.isEmpty())author = "";
-        if (isbn.isEmpty())isbn = "";
+    private void searchByFields(String title, String author, String isbn, String editorial) {
 
-        intent.putExtra("title", title);
-        intent.putExtra("author", author);
-        intent.putExtra("isbn", isbn);
-        getActivity().finish();
-        startActivity(intent);
+        if(title.isEmpty() && author.isEmpty() && isbn.isEmpty() && editorial.isEmpty()){
+            Toast.makeText(getApplicationContext(), "Es obligatorio informar de al menos uno de los campos de búsqueda", Toast.LENGTH_SHORT).show();
+        }else {
+            boolean isbnVerified = false;
+
+            if (isbn.length() == 10) {
+                isbnVerified = Utils.validateIsbn10(isbn);
+            } else if (isbn.length() == 13) {
+                isbnVerified = Utils.validateIsbn13(isbn);
+            }else if (isbn.length()==0){
+                isbnVerified=true;
+            } else {
+                isbnVerified=false;
+            }
+
+            if(isbnVerified==true) {
+                Intent intent = new Intent(getActivity(), SearchResultsActivity.class);
+                intent.putExtra("title", title);
+                intent.putExtra("author", author);
+                intent.putExtra("isbn", isbn);
+                intent.putExtra("editorial", editorial);
+                getActivity().finish();
+                startActivity(intent);
+            }else{
+                Toast.makeText(getApplicationContext(), "El código ISBN introducido es inválido: " + isbn.toString(), Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }

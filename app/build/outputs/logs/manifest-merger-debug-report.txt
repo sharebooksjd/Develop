@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml:2:1-69:12
-INJECTED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml:2:1-69:12
-INJECTED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml:2:1-69:12
-INJECTED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml:2:1-69:12
+ADDED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml:2:1-70:12
+INJECTED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml:2:1-70:12
+INJECTED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml:2:1-70:12
+INJECTED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml:2:1-70:12
 MERGED from [com.crashlytics.sdk.android:crashlytics:2.7.1] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\crashlytics-2.7.1.aar\53b195c1e4729e0763014e7101c2871b\AndroidManifest.xml:2:1-19:12
 MERGED from [com.google.firebase:firebase-core:11.8.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\firebase-core-11.8.0.aar\348fa973fddac3579540810f1da38c58\AndroidManifest.xml:2:1-6:12
 MERGED from [com.facebook.android:facebook-login:4.30.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\facebook-login-4.30.0.aar\9b6324c4c505781745bb545ce8126c18\AndroidManifest.xml:21:1-31:12
@@ -66,20 +66,20 @@ MERGED from [com.google.android.gms:play-services-auth-api-phone-license:11.8.0]
 MERGED from [com.google.android.gms:play-services-auth-base-license:11.8.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\play-services-auth-base-license-11.8.0.aar\1e7b57f154fdc43747e5907db3adb627\AndroidManifest.xml:2:1-6:12
 MERGED from [com.google.firebase:firebase-analytics-impl-license:11.8.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-license-11.8.0.aar\6580b38aba7124ed4421a86ee5fd4b47\AndroidManifest.xml:2:1-6:12
 MERGED from [com.google.android.gms:play-services-vision-common-license:11.8.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\play-services-vision-common-license-11.8.0.aar\edd9f1fb50ace7a3a4776a7ccb4251fc\AndroidManifest.xml:2:1-6:12
-INJECTED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml:2:1-69:12
-INJECTED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml:2:1-69:12
-INJECTED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml:2:1-69:12
+INJECTED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml:2:1-70:12
+INJECTED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml:2:1-70:12
+INJECTED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml:2:1-70:12
 	package
 		ADDED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml:3:5-29
 		INJECTED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml:2:1-69:12
+		ADDED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml:2:1-70:12
 		INJECTED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml:2:1-69:12
+		ADDED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml:2:1-70:12
 		INJECTED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml:2:11-69
@@ -132,7 +132,7 @@ ADDED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidMan
 	android:name
 		ADDED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml:13:19-67
 application
-ADDED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml:15:5-67:19
+ADDED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml:15:5-68:19
 MERGED from [com.crashlytics.sdk.android:crashlytics:2.7.1] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\crashlytics-2.7.1.aar\53b195c1e4729e0763014e7101c2871b\AndroidManifest.xml:11:5-17:19
 MERGED from [com.crashlytics.sdk.android:crashlytics:2.7.1] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\crashlytics-2.7.1.aar\53b195c1e4729e0763014e7101c2871b\AndroidManifest.xml:11:5-17:19
 MERGED from [com.google.firebase:firebase-core:11.8.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\firebase-core-11.8.0.aar\348fa973fddac3579540810f1da38c58\AndroidManifest.xml:5:5-20
@@ -300,19 +300,21 @@ ADDED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidMan
 	android:name
 		ADDED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml:58:13-41
 activity#com.sharebooks.SimpleAdvancedSearch
-ADDED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml:60:9-64:20
+ADDED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml:60:9-62:57
 	android:parentActivityName
 		ADDED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml:62:13-55
 	android:name
 		ADDED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml:61:13-49
 activity#com.sharebooks.SearchResultsActivity
-ADDED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml:65:9-59
+ADDED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml:63:9-65:65
+	android:parentActivityName
+		ADDED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml:65:13-63
 	android:name
-		ADDED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml:65:19-56
+		ADDED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml:64:13-50
 activity#com.sharebooks.DetailedActivity
-ADDED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml:66:9-63
+ADDED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml:66:9-67:47
 	android:name
-		ADDED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml:66:19-51
+		ADDED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml:67:13-45
 uses-sdk
 INJECTED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml

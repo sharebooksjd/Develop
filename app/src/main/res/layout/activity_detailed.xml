@@ -1,52 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="5dp"
     tools:context="com.sharebooks.DetailedActivity">
+
+    <TextView
+        android:id="@+id/AuthorlLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Autor del libro"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detailedBookImage" />
 
     <ImageView
         android:id="@+id/detailedBookImage"
-        android:layout_width="84dp"
-        android:layout_height="85dp"
+        android:layout_width="80dp"
+        android:layout_height="131dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        app:srcCompat="@drawable/ic_libros"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp" />
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_libros" />
 
     <TextView
         android:id="@+id/detailedBookTitle"
-        android:layout_width="114dp"
-        android:layout_height="33dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="40dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:layout_toEndOf="@+id/detailedBookImage"
+        android:padding="2dp"
         android:text="TextView"
+        android:textSize="16sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="123dp"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/detailedBookImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/detailedBookImage"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/detailedBookAuthor"
-        android:layout_width="114dp"
-        android:layout_height="32dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignStart="@+id/detailedBookTitle"
         android:layout_below="@+id/detailedBookTitle"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:padding="2dp"
         android:text="TextView"
-        android:textStyle="bold"
-        tools:layout_editor_absoluteX="123dp"
-        tools:layout_editor_absoluteY="49dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AuthorlLabel" />
 
     <TextView
         android:id="@+id/detailedBookDesc"
-        android:layout_width="400dp"
-        android:layout_height="400dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/detailedBookImage"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:padding="2dp"
         android:text="TextView"
-        tools:layout_editor_absoluteX="123dp"
-        tools:layout_editor_absoluteY="87dp" />
-</RelativeLayout>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detailLabel" />
+
+    <TextView
+        android:id="@+id/detailLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Descripción del libro"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detailedBookAuthor" />
+</android.support.constraint.ConstraintLayout>

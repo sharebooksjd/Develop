@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -67,6 +68,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
 
         int authors_size = 0;
         String authors = "";
+        String description = "";
         if(books.get(position).getVolumeInfo().getAuthors() != null)
          authors_size = books.get(position).getVolumeInfo().getAuthors().size();
         authors = "";
@@ -76,17 +78,25 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
             }
             authors += books.get(position).getVolumeInfo().getAuthors().get(i);
         }
+        if(authors.isEmpty()){
+            authors="Sin autor";
+        }
         holder.author.setText(authors);
         if ( (books.get(position).getVolumeInfo().getImageLinks() != null) && !(books.get(position).getVolumeInfo().getImageLinks().getThumbnail().isEmpty())){
             Picasso.with(context)
                     .load(books.get(position).getVolumeInfo().getImageLinks().getThumbnail())
-                    .resize(40,60)
+                    .resize(60,80)
                     .centerCrop()
                     .memoryPolicy(MemoryPolicy.NO_CACHE)
                     .memoryPolicy(MemoryPolicy.NO_STORE)
                     .into(holder.bookCover);
         }
-        holder.bookDescription.setText(books.get(position).getVolumeInfo().getDescription());
+        if(books.get(position).getVolumeInfo().getDescription()==null){
+            description="Sin descripción";
+        }else{
+            description=books.get(position).getVolumeInfo().getDescription();
+        }
+        holder.bookDescription.setText(description);
 
         final String finalAuthors = authors;
         holder.bookCover.setOnClickListener(new View.OnClickListener() {

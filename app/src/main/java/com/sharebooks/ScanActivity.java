@@ -36,15 +36,6 @@ public class ScanActivity extends AppCompatActivity implements BarcodeReader.Bar
         int length;
         boolean isbnVerified = false;
 
-
-        barcodeReader.playBeep();
-
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                Toast.makeText(getApplicationContext(), "Barcode: " + barcode.displayValue, Toast.LENGTH_SHORT).show();
-            }
-        });
         barcodeReader.pauseScanning();
 
         length = barcode.displayValue.length();
@@ -56,7 +47,7 @@ public class ScanActivity extends AppCompatActivity implements BarcodeReader.Bar
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    Toast.makeText(getApplicationContext(), "ISBN scanned is wrong: " + barcode.displayValue, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "El código ISBN escaneado es inválido:: " + barcode.displayValue, Toast.LENGTH_SHORT).show();
                 }
             });
         }

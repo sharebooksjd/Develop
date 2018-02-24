@@ -1,5 +1,6 @@
 package com.sharebooks;
 
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -31,4 +32,5 @@ public class DetailedActivity extends AppCompatActivity {
         mDesc.setText(desc);
 
     }
+
 }

@@ -69,7 +69,7 @@
             android:backgroundTint="@color/colorPrimary"
             android:ems="10"
             android:hint="@string/t_editorial"
-            android:inputType="text|number"
+            android:inputType="text"
             app:layout_constraintBottom_toTopOf="@+id/advancedSearchLanguage"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

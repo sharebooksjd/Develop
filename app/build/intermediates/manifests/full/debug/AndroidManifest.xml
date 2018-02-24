@@ -78,10 +78,10 @@
             android:parentActivityName="com.sharebooks.MainActivity" />
         <activity
             android:name="com.sharebooks.SimpleAdvancedSearch"
-            android:parentActivityName="com.sharebooks.MainActivity" >
-            >
-        </activity>
-        <activity android:name="com.sharebooks.SearchResultsActivity" />
+            android:parentActivityName="com.sharebooks.MainActivity" />
+        <activity
+            android:name="com.sharebooks.SearchResultsActivity"
+            android:parentActivityName="com.sharebooks.SimpleAdvancedSearch" />
         <activity android:name="com.sharebooks.DetailedActivity" />
 
         <provider

@@ -59,11 +59,12 @@
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".SimpleAdvancedSearch"
-            android:parentActivityName=".MainActivity">
-            >
-        </activity>
-        <activity android:name=".SearchResultsActivity" />
-        <activity android:name=".DetailedActivity"></activity>
+            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".SearchResultsActivity"
+            android:parentActivityName=".SimpleAdvancedSearch"/>
+        <activity
+            android:name=".DetailedActivity"/>
     </application>
 
 </manifest>
