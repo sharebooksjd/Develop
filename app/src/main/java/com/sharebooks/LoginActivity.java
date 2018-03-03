@@ -111,6 +111,13 @@ public class LoginActivity extends AppCompatActivity {
         mMailField = findViewById(R.id.mailForm);
         mPassField = findViewById(R.id.passForm);
 
+        registerDlg = new Dialog(this);
+        registerDlg.setContentView(R.layout.registerpopup);
+        registerMail = (TextInputEditText) registerDlg.findViewById(R.id.mailRegister);
+        registerPass = (TextInputEditText) registerDlg.findViewById(R.id.passRegister);
+        registerName = (TextInputEditText) registerDlg.findViewById(R.id.nameRegister);
+        registerBtn = (Button)registerDlg.findViewById(R.id.registerBtn);
+
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestIdToken(getString(R.string.default_web_client_id)).requestEmail().build();
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
@@ -129,25 +136,10 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-
-        registerDlg = new Dialog(this);
-        registerDlg.setContentView(R.layout.registerpopup);
-        registerMail = (TextInputEditText) registerDlg.findViewById(R.id.mailRegister);
-        registerPass = (TextInputEditText) registerDlg.findViewById(R.id.passRegister);
-        registerName = (TextInputEditText) registerDlg.findViewById(R.id.nameRegister);
-        registerBtn = (Button)registerDlg.findViewById(R.id.registerBtn);
-
         mSignUpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                     registerDlg.show();
-            }
-        });
-
-        registerBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                signUpWithMail();
             }
         });
 
@@ -157,6 +149,13 @@ public class LoginActivity extends AppCompatActivity {
                 if (validateForm()) {
                     signInWithMail();
                 }
+            }
+        });
+
+        registerBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                signUpWithMail();
             }
         });
     }
@@ -209,8 +208,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void AddToDatabase(FirebaseUser user, String name) {
-        // Add a new document with a generated ID
-        // Create a new user with a first and last name
 
         final FirebaseUser firebase_user = user;
         final String name_profile;
@@ -221,10 +218,12 @@ public class LoginActivity extends AppCompatActivity {
             name_profile = firebase_user.getDisplayName();
         }
         DocumentReference docRef = mDb.collection("users").document(firebase_user.getUid());
-            docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                    if (task.isSuccessful() && task.getResult() == null) {
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if(!document.exists()) {
                         final Map<String, Object> dbUser = new HashMap<>();
                         dbUser.put("id", firebase_user.getUid());
                         dbUser.put("name", name_profile);
@@ -233,12 +232,13 @@ public class LoginActivity extends AppCompatActivity {
                         dbUser.put("provider_id", firebase_user.getProviders().get(0));
 
                         mDb.collection("users").document(firebase_user.getUid()).set(dbUser);
-                    } else {
-                        Toast.makeText(LoginActivity.this, "Esta cuenta de correo ya se encuentra creada en el sistema mediante " + firebase_user.getProviders().get(0), Toast.LENGTH_SHORT).show();
                     }
+                } else {
+                    Toast.makeText(LoginActivity.this, "Esta cuenta de correo ya se encuentra creada en el sistema mediante " + firebase_user.getProviders().get(0), Toast.LENGTH_SHORT).show();
                 }
-            });
-        }
+            }
+        });
+    }
 
     private void signUpWithGoogleAcount() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();

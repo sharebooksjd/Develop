@@ -67,30 +67,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         final TextView userName = hView.findViewById(R.id.userName);
         final TextView userMail = hView.findViewById(R.id.userMail);
 
-
-        /*if(mAuth.getCurrentUser() != null) {
-            //mUserRef = FirebaseDatabase.getInstance().getReference().child("Users").child(mAuth.getCurrentUser().getUid());
-            mDb.collection("users").whereEqualTo("email", currentUser.getEmail()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        if(mAuth.getCurrentUser() != null) {
+            DocumentReference docRef = mDb.collection("users").document(currentUser.getUid());
+            docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                 @Override
-                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                     if (task.isSuccessful()) {
-                        QuerySnapshot document = task.getResult();
-                        userName.setText(document.getDocuments().get(0).getString("name"));
-                        userMail.setText(document.getDocuments().get(0).getString("mail"));
-
-                    } else {
-                        Toast.makeText(MainActivity.this, "Ha ocurrido un error al recuperar los datos", Toast.LENGTH_SHORT).show();
-                    }
-                }
+                        DocumentSnapshot document = task.getResult();
+                        if(document.exists()) {
+                            userName.setText(document.getString("name"));
+                            userMail.setText(document.getString("mail"));
+                        }
+                     }
+                 }
             });
-        }*/
-       /* if (currentUser != null) {
-            TextView userName = hView.findViewById(R.id.userName);
-            userName.setText(mAuth.getCurrentUser().getDisplayName().toString());
-
-            TextView userMail = hView.findViewById(R.id.userMail);
-            userMail.setText(mAuth.getCurrentUser().getEmail().toString());
-        }*/
+        }
 
         navigationView.setNavigationItemSelectedListener(this);
 
