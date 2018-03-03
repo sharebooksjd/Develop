@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
 
-    android:id="@+id/constraint"
+    android:id="@+id/scroll"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/horizontal_line"
@@ -109,5 +113,5 @@
             app:layout_constraintStart_toEndOf="@+id/detailedBookImage"
             app:layout_constraintTop_toTopOf="@+id/detailedBookImage"
             app:srcCompat="@drawable/ic_vertical_line" />
-
     </android.support.constraint.ConstraintLayout>
+</ScrollView>
