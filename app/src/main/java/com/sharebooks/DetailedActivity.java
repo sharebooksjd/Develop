@@ -31,11 +31,13 @@ public class DetailedActivity extends AppCompatActivity {
         mDesc = findViewById(R.id.detailedBookDesc);
         mImage = findViewById(R.id.detailedBookImage);
 
-        Picasso.with(getApplicationContext())
-                .load(image)
-                .memoryPolicy(MemoryPolicy.NO_CACHE)
-                .memoryPolicy(MemoryPolicy.NO_STORE)
-                .into(mImage);
+        if(image!="") {
+            Picasso.with(getApplicationContext())
+                    .load(image)
+                    .memoryPolicy(MemoryPolicy.NO_CACHE)
+                    .memoryPolicy(MemoryPolicy.NO_STORE)
+                    .into(mImage);
+        }
 
         mTitle.setText(title);
         mAuthor.setText(author);

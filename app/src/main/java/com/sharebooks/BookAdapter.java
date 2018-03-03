@@ -109,7 +109,9 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
                 intent.putExtra("author", finalAuthors);
                 intent.putExtra("title", holder.bookTitle.getText().toString());
                 intent.putExtra("description", finalDescription);
-                intent.putExtra("image", books.get(position).getVolumeInfo().getImageLinks().getThumbnail().toString());
+                if ( (books.get(position).getVolumeInfo().getImageLinks() != null) && !(books.get(position).getVolumeInfo().getImageLinks().getThumbnail().isEmpty())) {
+                    intent.putExtra("image", books.get(position).getVolumeInfo().getImageLinks().getThumbnail().toString());
+                }
                 context.startActivity(intent);
             }
         });
@@ -119,10 +121,12 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
             public void onClick(View v) {
                 Intent intent = new Intent(context, DetailedActivity.class);
                 //intent.putExtra("isbn", bookDescription.getText().toString());
-                intent.putExtra("author",  holder.bookTitle.getText().toString());
+                intent.putExtra("author", finalAuthors);
                 intent.putExtra("title", holder.bookTitle.getText().toString());
-                intent.putExtra("description", holder.bookDescription.getText().toString());
-                intent.putExtra("image", holder.bookDescription.getUrls().toString());
+                intent.putExtra("description", finalDescription);
+                if ( (books.get(position).getVolumeInfo().getImageLinks() != null) && !(books.get(position).getVolumeInfo().getImageLinks().getThumbnail().isEmpty())) {
+                    intent.putExtra("image", books.get(position).getVolumeInfo().getImageLinks().getThumbnail().toString());
+                }
                 context.startActivity(intent);
             }
         });
