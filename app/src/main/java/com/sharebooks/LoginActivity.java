@@ -1,13 +1,17 @@
 package com.sharebooks;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.widget.TextInputEditText;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -56,15 +60,23 @@ public class LoginActivity extends AppCompatActivity {
     private Button mSignUpBtn;
     private Button mSignInBtn;
 
-    private TextView mMailField;
-    private TextView mPassField;
+    private TextInputLayout mMailLayout;
+    private TextInputLayout mPassLayout;
+
+    private TextInputEditText mMailField;
+    private TextInputEditText mPassField;
+
+    private Dialog registerDlg;
+    private TextInputEditText registerMail;
+    private TextInputEditText registerPass;
+    private TextInputEditText registerName;
+    private Button registerBtn;
 
     private CallbackManager mCallbackManager;
 
     private static final String Facebook_TAG = "Facebook login";
     private static final String Google_TAG = "Google login";
     private static final String TAG = "Mail login";
-
 
     private static final int Google_SIGN_IN = 1;
     private static final int Facebook_SIGN_IN = 64206;
@@ -93,6 +105,9 @@ public class LoginActivity extends AppCompatActivity {
         mSignUpBtn = findViewById(R.id.signUpBtn);
         mSignInBtn = findViewById(R.id.signInBtn);
 
+        mMailLayout = findViewById(R.id.emailFormLayout);
+        mPassLayout = findViewById(R.id.passFormLayout);
+
         mMailField = findViewById(R.id.mailForm);
         mPassField = findViewById(R.id.passForm);
 
@@ -114,12 +129,25 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+
+        registerDlg = new Dialog(this);
+        registerDlg.setContentView(R.layout.registerpopup);
+        registerMail = (TextInputEditText) registerDlg.findViewById(R.id.mailRegister);
+        registerPass = (TextInputEditText) registerDlg.findViewById(R.id.passRegister);
+        registerName = (TextInputEditText) registerDlg.findViewById(R.id.nameRegister);
+        registerBtn = (Button)registerDlg.findViewById(R.id.registerBtn);
+
         mSignUpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (validateForm()) {
-                    signUpWithMail();
-                }
+                    registerDlg.show();
+            }
+        });
+
+        registerBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                signUpWithMail();
             }
         });
 
@@ -156,8 +184,9 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void signUpWithMail() {
-        String email = mMailField.getText().toString();
-        String password = mPassField.getText().toString();
+        String email = registerMail.getText().toString();
+        String password = registerPass.getText().toString();
+        final String name = registerName.getText().toString();
 
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
             @Override
@@ -166,7 +195,7 @@ public class LoginActivity extends AppCompatActivity {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "createUserWithEmail:success");
                     FirebaseUser user = mAuth.getCurrentUser();
-                    AddToDatabase(user);
+                    AddToDatabase(user,name);
                     updateUI(user);
                 } else {
                     // If sign in fails, display a message to the user.
@@ -179,40 +208,37 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private void AddToDatabase(FirebaseUser user) {
+    private void AddToDatabase(FirebaseUser user, String name) {
         // Add a new document with a generated ID
         // Create a new user with a first and last name
 
         final FirebaseUser firebase_user = user;
+        final String name_profile;
 
-        mDb.collection("users").whereEqualTo("email", user.getEmail()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if (task.isSuccessful() && task.getResult().isEmpty()) {
-                    final Map<String, Object> dbUser = new HashMap<>();
-                    dbUser.put("id", firebase_user.getUid());
-                    dbUser.put("name", firebase_user.getDisplayName());
-                    dbUser.put("mail", firebase_user.getEmail());
-                    dbUser.put("mail_verified", firebase_user.isEmailVerified());
-                    dbUser.put("provider_id", firebase_user.getProviders().get(0));
+        if(firebase_user.getDisplayName() == null){
+            name_profile = name;
+        }else{
+            name_profile = firebase_user.getDisplayName();
+        }
+        DocumentReference docRef = mDb.collection("users").document(firebase_user.getUid());
+            docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    if (task.isSuccessful() && task.getResult() == null) {
+                        final Map<String, Object> dbUser = new HashMap<>();
+                        dbUser.put("id", firebase_user.getUid());
+                        dbUser.put("name", name_profile);
+                        dbUser.put("mail", firebase_user.getEmail());
+                        dbUser.put("mail_verified", firebase_user.isEmailVerified());
+                        dbUser.put("provider_id", firebase_user.getProviders().get(0));
 
-                    mDb.collection("users").add(dbUser).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                        @Override
-                        public void onSuccess(DocumentReference documentReference) {
-                            Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Log.w(TAG, "Error adding document", e);
-                        }
-                    });
-                } else {
-                    Toast.makeText(LoginActivity.this, "Esta cuenta de correo ya se encuentra creada en el sistema mediante " + firebase_user.getProviders().get(0), Toast.LENGTH_SHORT).show();
+                        mDb.collection("users").document(firebase_user.getUid()).set(dbUser);
+                    } else {
+                        Toast.makeText(LoginActivity.this, "Esta cuenta de correo ya se encuentra creada en el sistema mediante " + firebase_user.getProviders().get(0), Toast.LENGTH_SHORT).show();
+                    }
                 }
-            }
-        });
-    }
+            });
+        }
 
     private void signUpWithGoogleAcount() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
@@ -282,7 +308,7 @@ public class LoginActivity extends AppCompatActivity {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(Facebook_TAG, "signInWithCredential:success");
                     FirebaseUser user = mAuth.getCurrentUser();
-                    AddToDatabase(user);
+                    AddToDatabase(user,null);
                     updateUI(user);
                 } else {
                     // If sign in fails, display a message to the user.
@@ -305,7 +331,7 @@ public class LoginActivity extends AppCompatActivity {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(Google_TAG, "signInWithCredential:success");
                     FirebaseUser user = mAuth.getCurrentUser();
-                    AddToDatabase(user);
+                    AddToDatabase(user,null);
                     updateUI(user);
                 } else {
                     // If sign in fails, display a message to the user.
@@ -323,7 +349,8 @@ public class LoginActivity extends AppCompatActivity {
 
         String email = mMailField.getText().toString();
         if (TextUtils.isEmpty(email)) {
-            mMailField.setError("Required.");
+            mMailLayout.setError("Obligatorio");
+            //mMailField.setError("Required.");
             valid = false;
         } else {
             mMailField.setError(null);
@@ -331,7 +358,8 @@ public class LoginActivity extends AppCompatActivity {
 
         String password = mPassField.getText().toString();
         if (TextUtils.isEmpty(password)) {
-            mPassField.setError("Required.");
+            mPassLayout.setError("Obligatorio");
+           // mPassField.setError("Required.");
             valid = false;
         } else {
             mPassField.setError(null);
