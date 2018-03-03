@@ -6,9 +6,9 @@ INJECTED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\Android
 INJECTED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml:2:1-70:12
 MERGED from [com.crashlytics.sdk.android:crashlytics:2.7.1] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\crashlytics-2.7.1.aar\53b195c1e4729e0763014e7101c2871b\AndroidManifest.xml:2:1-19:12
 MERGED from [com.google.firebase:firebase-core:11.8.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\firebase-core-11.8.0.aar\348fa973fddac3579540810f1da38c58\AndroidManifest.xml:2:1-6:12
-MERGED from [com.facebook.android:facebook-login:4.30.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\facebook-login-4.30.0.aar\9b6324c4c505781745bb545ce8126c18\AndroidManifest.xml:21:1-31:12
+MERGED from [com.facebook.android:facebook-login:4.31.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\facebook-login-4.31.0.aar\43d0ae3b3a5f94fbde522cf7c1a5cc6b\AndroidManifest.xml:21:1-31:12
 MERGED from [info.androidhive:barcode-reader:1.1.5] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\barcode-reader-1.1.5.aar\6dd80cf46dfe76e9ae70bbadc320ceea\AndroidManifest.xml:2:1-15:12
-MERGED from [com.facebook.android:facebook-common:4.30.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\facebook-common-4.30.0.aar\7eda8dbbb6301fe22331bd4d6b160bcf\AndroidManifest.xml:21:1-36:12
+MERGED from [com.facebook.android:facebook-common:4.31.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\facebook-common-4.31.0.aar\bbbba7de98668bd8288798c815c9e5c8\AndroidManifest.xml:21:1-36:12
 MERGED from [com.android.support:design:27.0.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\design-27.0.0.aar\007d6276c014775f21397dd8f0c32f71\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:appcompat-v7:27.0.2] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.0.2.aar\2ce7b2f262105756179e0953554cb306\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:firebase-auth:11.8.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\firebase-auth-11.8.0.aar\5f02ee2727bc951b2460e21d3c34a3d0\AndroidManifest.xml:17:1-32:12
@@ -37,7 +37,7 @@ MERGED from [com.crashlytics.sdk.android:beta:1.2.7] C:\Users\Daniel\.gradle\cac
 MERGED from [com.crashlytics.sdk.android:crashlytics-core:2.4.1] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\crashlytics-core-2.4.1.aar\1b65a54bf453b5970c965666b0c1af2a\AndroidManifest.xml:45:1-56:12
 MERGED from [com.crashlytics.sdk.android:answers:1.4.1] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\answers-1.4.1.aar\c9380678d9626909dbb9b4994fb0dbc0\AndroidManifest.xml:2:1-13:12
 MERGED from [io.fabric.sdk.android:fabric:1.4.1] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\fabric-1.4.1.aar\fedd1cdb50054abf4aced4a8e59548d6\AndroidManifest.xml:22:1-33:12
-MERGED from [com.facebook.android:facebook-core:4.30.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\facebook-core-4.30.0.aar\1f867089ca83434df884e1a448f6e035\AndroidManifest.xml:21:1-45:12
+MERGED from [com.facebook.android:facebook-core:4.31.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\facebook-core-4.31.0.aar\a10c2de1d82290e6685875e3f7cbaa8f\AndroidManifest.xml:21:1-45:12
 MERGED from [com.android.support:cardview-v7:27.0.2] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\cardview-v7-27.0.2.aar\1074d371ab0cccb3eac89b00250fd02d\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:customtabs:27.0.2] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\customtabs-27.0.2.aar\135823427514f40cd8b482f08d2466ef\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-fragment:27.0.2] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\support-fragment-27.0.2.aar\187ef0fb3d8d6028e0fcf0d33b3c1542\AndroidManifest.xml:17:1-22:12
@@ -137,10 +137,10 @@ MERGED from [com.crashlytics.sdk.android:crashlytics:2.7.1] C:\Users\Daniel\.gra
 MERGED from [com.crashlytics.sdk.android:crashlytics:2.7.1] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\crashlytics-2.7.1.aar\53b195c1e4729e0763014e7101c2871b\AndroidManifest.xml:11:5-17:19
 MERGED from [com.google.firebase:firebase-core:11.8.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\firebase-core-11.8.0.aar\348fa973fddac3579540810f1da38c58\AndroidManifest.xml:5:5-20
 MERGED from [com.google.firebase:firebase-core:11.8.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\firebase-core-11.8.0.aar\348fa973fddac3579540810f1da38c58\AndroidManifest.xml:5:5-20
-MERGED from [com.facebook.android:facebook-login:4.30.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\facebook-login-4.30.0.aar\9b6324c4c505781745bb545ce8126c18\AndroidManifest.xml:28:5-29:19
-MERGED from [com.facebook.android:facebook-login:4.30.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\facebook-login-4.30.0.aar\9b6324c4c505781745bb545ce8126c18\AndroidManifest.xml:28:5-29:19
-MERGED from [com.facebook.android:facebook-common:4.30.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\facebook-common-4.30.0.aar\7eda8dbbb6301fe22331bd4d6b160bcf\AndroidManifest.xml:28:5-34:19
-MERGED from [com.facebook.android:facebook-common:4.30.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\facebook-common-4.30.0.aar\7eda8dbbb6301fe22331bd4d6b160bcf\AndroidManifest.xml:28:5-34:19
+MERGED from [com.facebook.android:facebook-login:4.31.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\facebook-login-4.31.0.aar\43d0ae3b3a5f94fbde522cf7c1a5cc6b\AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-login:4.31.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\facebook-login-4.31.0.aar\43d0ae3b3a5f94fbde522cf7c1a5cc6b\AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-common:4.31.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\facebook-common-4.31.0.aar\bbbba7de98668bd8288798c815c9e5c8\AndroidManifest.xml:28:5-34:19
+MERGED from [com.facebook.android:facebook-common:4.31.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\facebook-common-4.31.0.aar\bbbba7de98668bd8288798c815c9e5c8\AndroidManifest.xml:28:5-34:19
 MERGED from [com.google.firebase:firebase-auth:11.8.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\firebase-auth-11.8.0.aar\5f02ee2727bc951b2460e21d3c34a3d0\AndroidManifest.xml:22:5-30:19
 MERGED from [com.google.firebase:firebase-auth:11.8.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\firebase-auth-11.8.0.aar\5f02ee2727bc951b2460e21d3c34a3d0\AndroidManifest.xml:22:5-30:19
 MERGED from [com.google.firebase:firebase-messaging:11.8.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\firebase-messaging-11.8.0.aar\6d6b08d15aa78318645037aeab2ad562\AndroidManifest.xml:22:5-35:19
@@ -175,8 +175,8 @@ MERGED from [com.crashlytics.sdk.android:answers:1.4.1] C:\Users\Daniel\.gradle\
 MERGED from [com.crashlytics.sdk.android:answers:1.4.1] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\answers-1.4.1.aar\c9380678d9626909dbb9b4994fb0dbc0\AndroidManifest.xml:11:5-20
 MERGED from [io.fabric.sdk.android:fabric:1.4.1] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\fabric-1.4.1.aar\fedd1cdb50054abf4aced4a8e59548d6\AndroidManifest.xml:31:5-20
 MERGED from [io.fabric.sdk.android:fabric:1.4.1] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\fabric-1.4.1.aar\fedd1cdb50054abf4aced4a8e59548d6\AndroidManifest.xml:31:5-20
-MERGED from [com.facebook.android:facebook-core:4.30.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\facebook-core-4.30.0.aar\1f867089ca83434df884e1a448f6e035\AndroidManifest.xml:28:5-43:19
-MERGED from [com.facebook.android:facebook-core:4.30.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\facebook-core-4.30.0.aar\1f867089ca83434df884e1a448f6e035\AndroidManifest.xml:28:5-43:19
+MERGED from [com.facebook.android:facebook-core:4.31.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\facebook-core-4.31.0.aar\a10c2de1d82290e6685875e3f7cbaa8f\AndroidManifest.xml:28:5-43:19
+MERGED from [com.facebook.android:facebook-core:4.31.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\facebook-core-4.31.0.aar\a10c2de1d82290e6685875e3f7cbaa8f\AndroidManifest.xml:28:5-43:19
 MERGED from [com.google.firebase:firebase-auth-license:11.8.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\firebase-auth-license-11.8.0.aar\67c77fb4e9f1c072e9fb246f5b60b794\AndroidManifest.xml:5:5-20
 MERGED from [com.google.firebase:firebase-auth-license:11.8.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\firebase-auth-license-11.8.0.aar\67c77fb4e9f1c072e9fb246f5b60b794\AndroidManifest.xml:5:5-20
 MERGED from [com.google.firebase:firebase-database-license:11.8.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\firebase-database-license-11.8.0.aar\2f99fed3d3405f5f8870241e08c2b99b\AndroidManifest.xml:5:5-20
@@ -259,14 +259,14 @@ ADDED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidMan
 		ADDED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml:38:13-67
 activity#com.facebook.FacebookActivity
 ADDED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml:41:9-44:48
-MERGED from [com.facebook.android:facebook-common:4.30.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\facebook-common-4.30.0.aar\7eda8dbbb6301fe22331bd4d6b160bcf\AndroidManifest.xml:29:9-32:66
-MERGED from [com.facebook.android:facebook-common:4.30.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\facebook-common-4.30.0.aar\7eda8dbbb6301fe22331bd4d6b160bcf\AndroidManifest.xml:29:9-32:66
+MERGED from [com.facebook.android:facebook-common:4.31.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\facebook-common-4.31.0.aar\bbbba7de98668bd8288798c815c9e5c8\AndroidManifest.xml:29:9-32:66
+MERGED from [com.facebook.android:facebook-common:4.31.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\facebook-common-4.31.0.aar\bbbba7de98668bd8288798c815c9e5c8\AndroidManifest.xml:29:9-32:66
 	android:label
 		ADDED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml:44:13-45
 	android:configChanges
 		ADDED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml:43:13-96
 	android:theme
-		ADDED from [com.facebook.android:facebook-common:4.30.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\facebook-common-4.30.0.aar\7eda8dbbb6301fe22331bd4d6b160bcf\AndroidManifest.xml:32:13-63
+		ADDED from [com.facebook.android:facebook-common:4.31.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\facebook-common-4.31.0.aar\bbbba7de98668bd8288798c815c9e5c8\AndroidManifest.xml:32:13-63
 	android:name
 		ADDED from C:\Users\Daniel\AndroidStudioProjects\Develop\app\src\main\AndroidManifest.xml:42:13-57
 activity#com.facebook.CustomTabActivity
@@ -323,12 +323,12 @@ MERGED from [com.crashlytics.sdk.android:crashlytics:2.7.1] C:\Users\Daniel\.gra
 MERGED from [com.crashlytics.sdk.android:crashlytics:2.7.1] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\crashlytics-2.7.1.aar\53b195c1e4729e0763014e7101c2871b\AndroidManifest.xml:7:5-43
 MERGED from [com.google.firebase:firebase-core:11.8.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\firebase-core-11.8.0.aar\348fa973fddac3579540810f1da38c58\AndroidManifest.xml:4:5-43
 MERGED from [com.google.firebase:firebase-core:11.8.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\firebase-core-11.8.0.aar\348fa973fddac3579540810f1da38c58\AndroidManifest.xml:4:5-43
-MERGED from [com.facebook.android:facebook-login:4.30.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\facebook-login-4.30.0.aar\9b6324c4c505781745bb545ce8126c18\AndroidManifest.xml:24:5-26:41
-MERGED from [com.facebook.android:facebook-login:4.30.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\facebook-login-4.30.0.aar\9b6324c4c505781745bb545ce8126c18\AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-login:4.31.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\facebook-login-4.31.0.aar\43d0ae3b3a5f94fbde522cf7c1a5cc6b\AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-login:4.31.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\facebook-login-4.31.0.aar\43d0ae3b3a5f94fbde522cf7c1a5cc6b\AndroidManifest.xml:24:5-26:41
 MERGED from [info.androidhive:barcode-reader:1.1.5] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\barcode-reader-1.1.5.aar\6dd80cf46dfe76e9ae70bbadc320ceea\AndroidManifest.xml:7:5-9:41
 MERGED from [info.androidhive:barcode-reader:1.1.5] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\barcode-reader-1.1.5.aar\6dd80cf46dfe76e9ae70bbadc320ceea\AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.android:facebook-common:4.30.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\facebook-common-4.30.0.aar\7eda8dbbb6301fe22331bd4d6b160bcf\AndroidManifest.xml:24:5-26:41
-MERGED from [com.facebook.android:facebook-common:4.30.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\facebook-common-4.30.0.aar\7eda8dbbb6301fe22331bd4d6b160bcf\AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-common:4.31.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\facebook-common-4.31.0.aar\bbbba7de98668bd8288798c815c9e5c8\AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-common:4.31.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\facebook-common-4.31.0.aar\bbbba7de98668bd8288798c815c9e5c8\AndroidManifest.xml:24:5-26:41
 MERGED from [com.android.support:design:27.0.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\design-27.0.0.aar\007d6276c014775f21397dd8f0c32f71\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:design:27.0.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\design-27.0.0.aar\007d6276c014775f21397dd8f0c32f71\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:appcompat-v7:27.0.2] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.0.2.aar\2ce7b2f262105756179e0953554cb306\AndroidManifest.xml:20:5-44
@@ -385,8 +385,8 @@ MERGED from [com.crashlytics.sdk.android:answers:1.4.1] C:\Users\Daniel\.gradle\
 MERGED from [com.crashlytics.sdk.android:answers:1.4.1] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\answers-1.4.1.aar\c9380678d9626909dbb9b4994fb0dbc0\AndroidManifest.xml:7:5-43
 MERGED from [io.fabric.sdk.android:fabric:1.4.1] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\fabric-1.4.1.aar\fedd1cdb50054abf4aced4a8e59548d6\AndroidManifest.xml:27:5-43
 MERGED from [io.fabric.sdk.android:fabric:1.4.1] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\fabric-1.4.1.aar\fedd1cdb50054abf4aced4a8e59548d6\AndroidManifest.xml:27:5-43
-MERGED from [com.facebook.android:facebook-core:4.30.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\facebook-core-4.30.0.aar\1f867089ca83434df884e1a448f6e035\AndroidManifest.xml:24:5-26:41
-MERGED from [com.facebook.android:facebook-core:4.30.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\facebook-core-4.30.0.aar\1f867089ca83434df884e1a448f6e035\AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-core:4.31.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\facebook-core-4.31.0.aar\a10c2de1d82290e6685875e3f7cbaa8f\AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-core:4.31.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\facebook-core-4.31.0.aar\a10c2de1d82290e6685875e3f7cbaa8f\AndroidManifest.xml:24:5-26:41
 MERGED from [com.android.support:cardview-v7:27.0.2] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\cardview-v7-27.0.2.aar\1074d371ab0cccb3eac89b00250fd02d\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:cardview-v7:27.0.2] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\cardview-v7-27.0.2.aar\1074d371ab0cccb3eac89b00250fd02d\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:customtabs:27.0.2] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\customtabs-27.0.2.aar\135823427514f40cd8b482f08d2466ef\AndroidManifest.xml:20:5-44
@@ -464,9 +464,9 @@ ADDED from [com.crashlytics.sdk.android:crashlytics:2.7.1] C:\Users\Daniel\.grad
 	android:name
 		ADDED from [com.crashlytics.sdk.android:crashlytics:2.7.1] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\crashlytics-2.7.1.aar\53b195c1e4729e0763014e7101c2871b\AndroidManifest.xml:13:13-75
 activity#com.facebook.CustomTabMainActivity
-ADDED from [com.facebook.android:facebook-common:4.30.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\facebook-common-4.30.0.aar\7eda8dbbb6301fe22331bd4d6b160bcf\AndroidManifest.xml:33:9-71
+ADDED from [com.facebook.android:facebook-common:4.31.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\facebook-common-4.31.0.aar\bbbba7de98668bd8288798c815c9e5c8\AndroidManifest.xml:33:9-71
 	android:name
-		ADDED from [com.facebook.android:facebook-common:4.30.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\facebook-common-4.30.0.aar\7eda8dbbb6301fe22331bd4d6b160bcf\AndroidManifest.xml:33:19-68
+		ADDED from [com.facebook.android:facebook-common:4.31.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\facebook-common-4.31.0.aar\bbbba7de98668bd8288798c815c9e5c8\AndroidManifest.xml:33:19-68
 activity#com.google.firebase.auth.internal.FederatedSignInActivity
 ADDED from [com.google.firebase:firebase-auth:11.8.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\firebase-auth-11.8.0.aar\5f02ee2727bc951b2460e21d3c34a3d0\AndroidManifest.xml:23:9-29:75
 	android:excludeFromRecents
@@ -662,10 +662,10 @@ ADDED from [com.google.android.gms:play-services-basement:11.8.0] C:\Users\Danie
 	android:name
 		ADDED from [com.google.android.gms:play-services-basement:11.8.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\play-services-basement-11.8.0.aar\867c545c2c972c3dc1b99a59d311ca01\AndroidManifest.xml:24:13-58
 provider#com.facebook.internal.FacebookInitProvider
-ADDED from [com.facebook.android:facebook-core:4.30.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\facebook-core-4.30.0.aar\1f867089ca83434df884e1a448f6e035\AndroidManifest.xml:39:9-42:40
+ADDED from [com.facebook.android:facebook-core:4.31.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\facebook-core-4.31.0.aar\a10c2de1d82290e6685875e3f7cbaa8f\AndroidManifest.xml:39:9-42:40
 	android:authorities
-		ADDED from [com.facebook.android:facebook-core:4.30.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\facebook-core-4.30.0.aar\1f867089ca83434df884e1a448f6e035\AndroidManifest.xml:41:13-72
+		ADDED from [com.facebook.android:facebook-core:4.31.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\facebook-core-4.31.0.aar\a10c2de1d82290e6685875e3f7cbaa8f\AndroidManifest.xml:41:13-72
 	android:exported
-		ADDED from [com.facebook.android:facebook-core:4.30.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\facebook-core-4.30.0.aar\1f867089ca83434df884e1a448f6e035\AndroidManifest.xml:42:13-37
+		ADDED from [com.facebook.android:facebook-core:4.31.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\facebook-core-4.31.0.aar\a10c2de1d82290e6685875e3f7cbaa8f\AndroidManifest.xml:42:13-37
 	android:name
-		ADDED from [com.facebook.android:facebook-core:4.30.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\facebook-core-4.30.0.aar\1f867089ca83434df884e1a448f6e035\AndroidManifest.xml:40:13-70
+		ADDED from [com.facebook.android:facebook-core:4.31.0] C:\Users\Daniel\.gradle\caches\transforms-1\files-1.1\facebook-core-4.31.0.aar\a10c2de1d82290e6685875e3f7cbaa8f\AndroidManifest.xml:40:13-70

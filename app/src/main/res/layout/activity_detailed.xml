@@ -1,102 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:id="@+id/constraint"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        tools:context="com.sharebooks.DetailedActivity">
-
-        <TextView
-            android:id="@+id/AuthorlLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:text="@string/t_autor_del_libro"
-            android:textColor="@color/colorPrimaryDark"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/detailedBookImage" />
-
         <ImageView
-            android:id="@+id/detailedBookImage"
-            android:layout_width="80dp"
-            android:layout_height="131dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="8dp"
+            android:id="@+id/horizontal_line"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="50dp"
+            android:layout_marginStart="50dp"
             android:layout_marginTop="8dp"
-            android:contentDescription="TODO"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_libros" />
+            app:layout_constraintTop_toBottomOf="@+id/detailedBookTitle"
+            app:srcCompat="@drawable/ic_horizontal_line" />
 
         <TextView
             android:id="@+id/detailedBookTitle"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginBottom="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
             android:layout_marginEnd="8dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_toEndOf="@+id/detailedBookImage"
-            android:padding="2dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:padding="8dp"
             android:text="TextView"
+            android:textAlignment="center"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/detailedBookImage"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/detailedBookImage"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/detailedBookImage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:adjustViewBounds="true"
+            android:maxHeight="160dp"
+            android:padding="8dp"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toStartOf="@+id/verticalLine"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/horizontal_line"
+            app:srcCompat="@drawable/ic_libros" />
 
         <TextView
             android:id="@+id/detailedBookAuthor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/detailedBookTitle"
-            android:layout_below="@+id/detailedBookTitle"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:padding="2dp"
-            android:text="TextView"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/AuthorlLabel" />
-
-        <TextView
-            android:id="@+id/detailedBookDesc"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/detailedBookImage"
-            android:layout_centerHorizontal="true"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:inputType="none"
-            android:isScrollContainer="false"
-            android:padding="2dp"
+            android:gravity="center_vertical"
+            android:padding="8dp"
             android:text="TextView"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="@+id/detailedBookImage"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/detailLabel" />
+            app:layout_constraintStart_toEndOf="@+id/verticalLine"
+            app:layout_constraintTop_toTopOf="@+id/detailedBookImage" />
 
         <TextView
-            android:id="@+id/detailLabel"
-            android:layout_width="wrap_content"
+            android:id="@+id/detailedBookDesc"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="@string/t_descripci_n_del_libro"
-            android:textColor="@color/colorPrimaryDark"
-            android:textStyle="bold"
+            android:padding="8dp"
+            android:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/detailedBookAuthor" />
+            app:layout_constraintTop_toBottomOf="@+id/horizontalLine" />
+
+        <ImageView
+            android:id="@+id/horizontalLine"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="8dp"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detailedBookImage"
+            app:srcCompat="@drawable/ic_horizontal_line" />
+
+        <ImageView
+            android:id="@+id/verticalLine"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/detailedBookImage"
+            app:layout_constraintEnd_toStartOf="@+id/detailedBookAuthor"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/detailedBookImage"
+            app:layout_constraintTop_toTopOf="@+id/detailedBookImage"
+            app:srcCompat="@drawable/ic_vertical_line" />
+
     </android.support.constraint.ConstraintLayout>
-</ScrollView>

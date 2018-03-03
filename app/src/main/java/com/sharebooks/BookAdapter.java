@@ -99,6 +99,8 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
         holder.bookDescription.setText(description);
 
         final String finalAuthors = authors;
+        final String finalDescription = description;
+
         holder.bookCover.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -106,8 +108,8 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
                 //intent.putExtra("isbn", bookDescription.getText().toString());
                 intent.putExtra("author", finalAuthors);
                 intent.putExtra("title", holder.bookTitle.getText().toString());
-                intent.putExtra("description", holder.bookDescription.getText().toString());
-                //intent.putExtra("image", holder.bookDescription.getUrls().toString());
+                intent.putExtra("description", finalDescription);
+                intent.putExtra("image", books.get(position).getVolumeInfo().getImageLinks().getThumbnail().toString());
                 context.startActivity(intent);
             }
         });
@@ -120,7 +122,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
                 intent.putExtra("author",  holder.bookTitle.getText().toString());
                 intent.putExtra("title", holder.bookTitle.getText().toString());
                 intent.putExtra("description", holder.bookDescription.getText().toString());
-                //intent.putExtra("image", holder.bookDescription.getUrls().toString());
+                intent.putExtra("image", holder.bookDescription.getUrls().toString());
                 context.startActivity(intent);
             }
         });

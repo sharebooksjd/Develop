@@ -52,23 +52,23 @@ public final class R {
         public static final int googleg_standard_color_18 = 0x7f080090;
     }
     public static final class id {
-        public static final int adjust_height = 0x7f09001c;
-        public static final int adjust_width = 0x7f09001d;
-        public static final int auto = 0x7f09002d;
-        public static final int button = 0x7f090038;
-        public static final int center = 0x7f09003c;
+        public static final int adjust_height = 0x7f09001b;
+        public static final int adjust_width = 0x7f09001c;
+        public static final int auto = 0x7f09002c;
+        public static final int button = 0x7f090037;
+        public static final int center = 0x7f09003b;
         public static final int dark = 0x7f090056;
-        public static final int icon_only = 0x7f090080;
-        public static final int light = 0x7f09008d;
-        public static final int none = 0x7f0900a5;
-        public static final int normal = 0x7f0900a6;
-        public static final int radio = 0x7f0900b7;
-        public static final int standard = 0x7f0900e7;
-        public static final int text = 0x7f0900ee;
-        public static final int text2 = 0x7f0900ef;
-        public static final int toolbar = 0x7f0900f9;
-        public static final int wide = 0x7f09010b;
-        public static final int wrap_content = 0x7f09010e;
+        public static final int icon_only = 0x7f090081;
+        public static final int light = 0x7f09008e;
+        public static final int none = 0x7f0900a6;
+        public static final int normal = 0x7f0900a7;
+        public static final int radio = 0x7f0900b8;
+        public static final int standard = 0x7f0900e8;
+        public static final int text = 0x7f0900ef;
+        public static final int text2 = 0x7f0900f0;
+        public static final int toolbar = 0x7f0900fa;
+        public static final int wide = 0x7f09010d;
+        public static final int wrap_content = 0x7f090110;
     }
     public static final class integer {
         public static final int google_play_services_version = 0x7f0a0007;
