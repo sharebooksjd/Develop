@@ -1,6 +1,7 @@
 package com.sharebooks;
 
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputEditText;
@@ -16,6 +17,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.crashlytics.android.Crashlytics;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
@@ -24,6 +26,11 @@ import com.facebook.FacebookException;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.credentials.CredentialRequest;
+import com.google.android.gms.auth.api.credentials.Credentials;
+import com.google.android.gms.auth.api.credentials.CredentialsClient;
+import com.google.android.gms.auth.api.credentials.CredentialsOptions;
+import com.google.android.gms.auth.api.credentials.IdentityProviders;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -71,6 +78,7 @@ public class LoginActivity extends AppCompatActivity {
     private TextInputEditText registerPass;
     private TextInputEditText registerName;
     private Button registerBtn;
+    private MaterialDialog dialog;
 
     private CallbackManager mCallbackManager;
 
@@ -82,6 +90,7 @@ public class LoginActivity extends AppCompatActivity {
     private static final int Facebook_SIGN_IN = 64206;
 
     private GoogleSignInClient mGoogleSignInClient;
+    CredentialsClient mCredentialsClient;
 
     private FirebaseAuth mAuth;
     private FirebaseFirestore mDb;
@@ -117,6 +126,20 @@ public class LoginActivity extends AppCompatActivity {
         registerPass = (TextInputEditText) registerDlg.findViewById(R.id.passRegister);
         registerName = (TextInputEditText) registerDlg.findViewById(R.id.nameRegister);
         registerBtn = (Button)registerDlg.findViewById(R.id.registerBtn);
+
+        // Instantiate client for interacting with the credentials API. For this demo
+        // application we forcibly enable the SmartLock save dialog, which is sometimes
+        // disabled when it would conflict with the Android autofill API.
+        CredentialsOptions options = new CredentialsOptions.Builder()
+                .forceEnableSaveDialog()
+                .build();
+        mCredentialsClient = Credentials.getClient(this, options);
+
+        MaterialDialog.Builder builder = new MaterialDialog.Builder(this)
+                .title("ShareBooks")
+                .content("Cargando...")
+                .progress(true, 0);
+        dialog = builder.build();
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestIdToken(getString(R.string.default_web_client_id)).requestEmail().build();
 
@@ -164,6 +187,8 @@ public class LoginActivity extends AppCompatActivity {
         String email = mMailField.getText().toString();
         String password = mPassField.getText().toString();
 
+        dialog.show();
+
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -173,6 +198,7 @@ public class LoginActivity extends AppCompatActivity {
                     FirebaseUser user = mAuth.getCurrentUser();
                     updateUI(user);
                 } else {
+                    dialog.dismiss();
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "createUserWithEmail:failure", task.getException());
                     updateUI(null);
@@ -187,6 +213,8 @@ public class LoginActivity extends AppCompatActivity {
         String password = registerPass.getText().toString();
         final String name = registerName.getText().toString();
 
+        dialog.show();
+
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -197,6 +225,7 @@ public class LoginActivity extends AppCompatActivity {
                     AddToDatabase(user,name);
                     updateUI(user);
                 } else {
+                    dialog.dismiss();
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "createUserWithEmail:failure", task.getException());
                     Toast.makeText(LoginActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
@@ -242,11 +271,13 @@ public class LoginActivity extends AppCompatActivity {
 
     private void signUpWithGoogleAcount() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+        dialog.show();
         startActivityForResult(signInIntent, Google_SIGN_IN);
     }
 
     private void signUpWithFacebookAcount() {
         LoginManager.getInstance().logInWithReadPermissions(LoginActivity.this, Arrays.asList("email", "public_profile"));
+        dialog.show();
         LoginManager.getInstance().registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
@@ -256,12 +287,14 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onCancel() {
+                dialog.dismiss();
                 Log.d(Facebook_TAG, "facebook:onCancel");
                 // ...
             }
 
             @Override
             public void onError(FacebookException error) {
+                dialog.dismiss();
                 Log.d(Facebook_TAG, "facebook:onError", error);
                 // ...
             }
@@ -289,6 +322,7 @@ public class LoginActivity extends AppCompatActivity {
                 GoogleSignInAccount account = result.getSignInAccount();
                 firebaseAuthWithGoogle(account);
             } else {
+                dialog.dismiss();
                 updateUI(null);
             }
         } else if (requestCode == Facebook_SIGN_IN) {
@@ -305,6 +339,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
+                    dialog.dismiss();
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(Facebook_TAG, "signInWithCredential:success");
                     FirebaseUser user = mAuth.getCurrentUser();
@@ -328,6 +363,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
+                    dialog.dismiss();
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(Google_TAG, "signInWithCredential:success");
                     FirebaseUser user = mAuth.getCurrentUser();
