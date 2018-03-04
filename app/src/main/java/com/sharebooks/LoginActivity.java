@@ -151,7 +151,7 @@ public class LoginActivity extends AppCompatActivity {
                 signUpWithFacebookAcount();
             }
         });
-
+//prueba
         mGoogleLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
