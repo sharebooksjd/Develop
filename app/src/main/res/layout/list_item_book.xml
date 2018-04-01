@@ -106,7 +106,7 @@
                 <ImageButton
                     android:id="@+id/imageButton"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="0"
                     android:elevation="0dp"
                     app:srcCompat="@drawable/add_book" />
