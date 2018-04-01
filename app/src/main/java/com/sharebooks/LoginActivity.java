@@ -67,6 +67,10 @@ public class LoginActivity extends AppCompatActivity {
     private TextInputEditText mPassField;
 
     private Dialog registerDlg;
+
+    private TextInputLayout mMailRegisterLayout;
+    private TextInputLayout mPassRegisterLayout;
+    private TextInputLayout mNameRegisterLayout;
     private TextInputEditText registerMail;
     private TextInputEditText registerPass;
     private TextInputEditText registerName;
@@ -113,6 +117,11 @@ public class LoginActivity extends AppCompatActivity {
 
         registerDlg = new Dialog(this);
         registerDlg.setContentView(R.layout.registerpopup);
+
+        mMailRegisterLayout = (TextInputLayout) registerDlg.findViewById(R.id.mailRegisterLayout);
+        mPassRegisterLayout = (TextInputLayout) registerDlg.findViewById(R.id.passRegisterLayout);
+        mNameRegisterLayout = (TextInputLayout) registerDlg.findViewById(R.id.nameRegisterLayout);
+
         registerMail = (TextInputEditText) registerDlg.findViewById(R.id.mailRegister);
         registerPass = (TextInputEditText) registerDlg.findViewById(R.id.passRegister);
         registerName = (TextInputEditText) registerDlg.findViewById(R.id.nameRegister);
@@ -155,7 +164,9 @@ public class LoginActivity extends AppCompatActivity {
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                signUpWithMail();
+                if (validateRegisterForm()) {
+                    signUpWithMail();
+                }
             }
         });
     }
@@ -350,7 +361,6 @@ public class LoginActivity extends AppCompatActivity {
         String email = mMailField.getText().toString();
         if (TextUtils.isEmpty(email)) {
             mMailLayout.setError("Obligatorio");
-            //mMailField.setError("Required.");
             valid = false;
         } else {
             mMailField.setError(null);
@@ -359,10 +369,39 @@ public class LoginActivity extends AppCompatActivity {
         String password = mPassField.getText().toString();
         if (TextUtils.isEmpty(password)) {
             mPassLayout.setError("Obligatorio");
-           // mPassField.setError("Required.");
             valid = false;
         } else {
             mPassField.setError(null);
+        }
+
+        return valid;
+    }
+
+    private boolean validateRegisterForm() {
+        boolean valid = true;
+
+        String email = registerMail.getText().toString();
+        if (TextUtils.isEmpty(email)) {
+            mMailRegisterLayout.setError("Obligatorio");
+            valid = false;
+        } else {
+            mMailRegisterLayout.setError(null);
+        }
+
+        String password = registerPass.getText().toString();
+        if (TextUtils.isEmpty(password)) {
+            mPassRegisterLayout.setError("Obligatorio");
+            valid = false;
+        } else {
+            mPassRegisterLayout.setError(null);
+        }
+
+        String userName = registerName.getText().toString();
+        if (TextUtils.isEmpty(userName)) {
+            mNameRegisterLayout.setError("Obligatorio");
+            valid = false;
+        } else {
+            mNameRegisterLayout.setError(null);
         }
 
         return valid;
