@@ -346,11 +346,10 @@ public class LoginActivity extends AppCompatActivity {
         Log.d(Facebook_TAG, "handleFacebookAccessToken:" + token);
 
         final AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
-        mAuth.signInWithCredential(credential).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
-                    dialog.dismiss();
+                    mAuth.signInWithCredential(credential).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(Facebook_TAG, "signInWithCredential:success");
                     FirebaseUser user = mAuth.getCurrentUser();
@@ -358,8 +357,9 @@ public class LoginActivity extends AppCompatActivity {
                     updateUI(user);
                 } else {
                     // If sign in fails, display a message to the user.
+                    dialog.dismiss();
                     Log.w(Facebook_TAG, "signInWithCredential:failure", task.getException());
-                    Toast.makeText(LoginActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
                     updateUI(null);
                 }
             }
@@ -374,13 +374,13 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    dialog.dismiss();
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(Google_TAG, "signInWithCredential:success");
                     FirebaseUser user = mAuth.getCurrentUser();
                     AddToDatabase(user,null);
                     updateUI(user);
                 } else {
+                    dialog.dismiss();
                     // If sign in fails, display a message to the user.
                     Log.w(Google_TAG, "signInWithCredential:failure", task.getException());
                     Toast.makeText(LoginActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
