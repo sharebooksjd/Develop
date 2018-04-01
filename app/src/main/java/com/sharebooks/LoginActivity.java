@@ -26,7 +26,9 @@ import com.facebook.FacebookException;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.credentials.Credential;
 import com.google.android.gms.auth.api.credentials.CredentialRequest;
+import com.google.android.gms.auth.api.credentials.CredentialRequestResponse;
 import com.google.android.gms.auth.api.credentials.Credentials;
 import com.google.android.gms.auth.api.credentials.CredentialsClient;
 import com.google.android.gms.auth.api.credentials.CredentialsOptions;
@@ -36,6 +38,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -59,7 +63,7 @@ import java.util.Map;
 
 import io.fabric.sdk.android.Fabric;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
 
     private ImageButton mFacebookLoginBtn;
     private ImageButton mGoogleLoginBtn;
@@ -94,7 +98,9 @@ public class LoginActivity extends AppCompatActivity {
     private static final int Facebook_SIGN_IN = 64206;
 
     private GoogleSignInClient mGoogleSignInClient;
-    CredentialsClient mCredentialsClient;
+    private GoogleApiClient mGoogleApiClient;
+    private CredentialsClient mCredentialsClient;
+    private CredentialRequest mCredentialRequest;
 
     private FirebaseAuth mAuth;
     private FirebaseFirestore mDb;
@@ -136,6 +142,15 @@ public class LoginActivity extends AppCompatActivity {
         registerName = (TextInputEditText) registerDlg.findViewById(R.id.nameRegister);
         registerBtn = (Button)registerDlg.findViewById(R.id.registerBtn);
 
+ /*
+ https://www.androidauthority.com/how-to-integrate-smart-lock-in-android-apps-702638/
+ https://developers.google.com/identity/smartlock-passwords/android/overview
+
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .addConnectionCallbacks(this)
+                .enableAutoManage(this, 0, this)
+                .addApi(Auth.CREDENTIALS_API)
+                .build();
         // Instantiate client for interacting with the credentials API. For this demo
         // application we forcibly enable the SmartLock save dialog, which is sometimes
         // disabled when it would conflict with the Android autofill API.
@@ -144,11 +159,29 @@ public class LoginActivity extends AppCompatActivity {
                 .build();
         mCredentialsClient = Credentials.getClient(this, options);
 
+        mCredentialRequest = new CredentialRequest.Builder().setPasswordLoginSupported(true).setAccountTypes(IdentityProviders.GOOGLE, IdentityProviders.FACEBOOK).build();
+*/
         MaterialDialog.Builder builder = new MaterialDialog.Builder(this)
                 .title("ShareBooks")
                 .content("Cargando...")
                 .progress(true, 0);
         dialog = builder.build();
+
+   /*     mCredentialsClient.request(mCredentialRequest).addOnCompleteListener(
+                new OnCompleteListener<CredentialRequestResponse>() {
+                    @Override
+                    public void onComplete(@NonNull Task<CredentialRequestResponse> task) {
+
+                        if (task.isSuccessful()) {
+                            // See "Handle successful credential requests"
+                            onCredentialRetrieved(task.getResult().getCredential());
+                            return;
+                        }
+
+                        // See "Handle unsuccessful and incomplete credential requests"
+                        // ...
+                    }
+                });*/
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestIdToken(getString(R.string.default_web_client_id)).requestEmail().build();
 
@@ -193,6 +226,45 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
+/*    private void onCredentialRetrieved(Credential credential) {
+        String accountType = credential.getAccountType();
+        if (accountType == null) {
+            // Sign the user in with information from the Credential.
+            signInWithPassword(credential.getId(), credential.getPassword());
+        } else if (accountType.equals(IdentityProviders.GOOGLE)) {
+            // The user has previously signed in with Google Sign-In. Silently
+            // sign in the user with the same ID.
+            // See https://developers.google.com/identity/sign-in/android/
+            GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestIdToken(getString(R.string.default_web_client_id)).requestEmail().build();
+
+            mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+            signUpWithGoogleAcount();
+        }
+    }
+
+    private void signInWithPassword(String email, String password) {
+        dialog.show();
+
+        mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    // Sign in success, update UI with the signed-in user's information
+                    Log.d(TAG, "createUserWithEmail:success");
+                    FirebaseUser user = mAuth.getCurrentUser();
+                    updateUI(user);
+                } else {
+                    dialog.dismiss();
+                    // If sign in fails, display a message to the user.
+                    Log.w(TAG, "createUserWithEmail:failure", task.getException());
+                    updateUI(null);
+                }
+
+            }
+        });
+    }
+    */
 
     private void signInWithMail() {
         String email = mMailField.getText().toString();
@@ -443,6 +515,21 @@ public class LoginActivity extends AppCompatActivity {
         return valid;
     }
 
+    @Override
+    public void onConnected(Bundle connectionHint) {
+        // We are now connected!
+    }
+
+    @Override
+    public void onConnectionSuspended(int cause) {
+        // We are not connected anymore!
+    }
+
+    @Override
+    public void onConnectionFailed(ConnectionResult result) {
+        // We tried to connect but failed!
+    }
+
     private void updateUI(FirebaseUser currentUser) {
         if (currentUser != null) {
             Intent startIntent = new Intent(LoginActivity.this, MainActivity.class);
@@ -451,4 +538,8 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+
+    }
 }
