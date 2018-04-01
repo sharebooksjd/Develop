@@ -193,7 +193,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                 signUpWithFacebookAcount();
             }
         });
-//prueba
+
         mGoogleLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
